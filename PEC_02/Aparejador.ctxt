@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Aparejador
+comment0.text=\r\n\ Aparejador\r\n
+comment1.params=
+comment1.target=Aparejador()
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=
+comment2.target=void\ mostrarClientesApa()
+comment2.text=\r\n\ Visualizaci\u00F3n\ de\ datos\ de\ los\ clientes\ asignados\ (proyectos,\ certificados\ y\ ejecuci\u00F3n\ de\ obras\ contratadas).\r\n
+comment3.params=
+comment3.target=void\ mostrarTareasApa()
+comment3.text=\r\n\ Consulta\ de\ proyectos\ arquitect\u00F3nicos\ y\ certificados\ a\ los\ que\ ha\ sido\ asignado.\r\n
+comment4.params=
+comment4.target=void\ mostrarClientesPendientes()
+comment4.text=\r\n\ Visualizaci\u00F3n\ de\ listado\ de\ clientes\ en\ funci\u00F3n\ de\ visitas\ pendientes\ para\ la\ emisi\u00F3n\ de\ certificados.\r\n
+numComments=5
