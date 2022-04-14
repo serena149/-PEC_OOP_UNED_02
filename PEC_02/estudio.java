@@ -1,4 +1,3 @@
-
 /**
  * Clase principal del proyecto de gestión del estudio de arquitectura
  * 

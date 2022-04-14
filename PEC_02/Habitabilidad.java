@@ -9,17 +9,21 @@ import java.time.LocalDate;
 public class Habitabilidad extends Certificado
 {
     //Variables para guardar la visita del aparejador:
-    Aparejador apaAsignado;
-    LocalDate fechaVisita;
+    public String DNIaparejador;
+    public LocalDate fechaVisita;
     //Variable para el arquitecto:
-    Arquitecto arquiAsignado;
-    LocalDate fechaEmision;
+    public String DNIarquitecto;
+    public LocalDate fechaEmision;
     
     /**
      * Constructor
      */
     public Habitabilidad(String str1)
     {
-        nombreUnicoTarea = str1;        
+        nombreUnicoTarea = str1;
+        DNIaparejador = "";
+        fechaVisita = LocalDate.of(1000, 01, 01);
+        DNIarquitecto = "";
+        fechaEmision = LocalDate.of(1000, 01, 01);
     }
 }

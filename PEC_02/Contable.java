@@ -13,7 +13,10 @@ public class Contable extends Empleado
     public Contable(String nif)
     {
         DNIoNIE = nif;
-        IDtipo = 4;    
+        IDtipo = 4;  
+        nombre = "";
+        ape1 = "";
+        ape2 = "";
     }
 
     /**

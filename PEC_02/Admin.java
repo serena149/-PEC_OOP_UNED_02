@@ -15,6 +15,9 @@ public class Admin extends Empleado
     {
         DNIoNIE = nif;
         IDtipo = 1;
+        nombre = "";
+        ape1 = "";
+        ape2 = "";
     }
     
     /**

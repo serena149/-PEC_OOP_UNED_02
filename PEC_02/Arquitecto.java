@@ -16,6 +16,9 @@ public class Arquitecto extends Empleado
     {
         DNIoNIE = nif;
         IDtipo = 2;
+        nombre = "";
+        ape1 = "";
+        ape2 = "";
     }
 
     /**
@@ -41,17 +44,6 @@ public class Arquitecto extends Empleado
         String nombreInput;
         String DNIInput;        
         boolean clienteExiste = false;
-        
-        
-        
-        //DEBUG BORRAR
-        estudio.datosPersonas.add(new Cliente("611616776"));    
-        //FIN DEBUG BORRAR
-            
-            
-        
-        
-        
         
         try {                 
             System.out.println("Indica una fecha de solicitud con formato aaaa-mm-dd");

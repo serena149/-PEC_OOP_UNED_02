@@ -15,6 +15,9 @@ public class Aparejador extends Empleado
     {
         DNIoNIE = nif;
         IDtipo = 3;
+        nombre = "";
+        ape1 = "";
+        ape2 = "";
     }
 
     /**

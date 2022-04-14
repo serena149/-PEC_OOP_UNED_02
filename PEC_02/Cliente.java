@@ -1,10 +1,9 @@
-
 /**
  * Cliente
  */
 public class Cliente extends Persona
 {
-       
+    
     /**
      * Constructor
      */
@@ -12,5 +11,9 @@ public class Cliente extends Persona
     {
         DNIoNIE = nif;
         IDtipo = 0;
+        
+        nombre = "";
+        ape1 = "";
+        ape2 = "";
     }   
 }

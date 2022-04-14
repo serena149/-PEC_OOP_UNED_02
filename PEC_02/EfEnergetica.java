@@ -14,7 +14,7 @@ public class EfEnergetica extends Certificado
     private ArrayList<Character> categorias;
     //Variables para la visita del aparejador:
     public LocalDate fechaVisita;
-    public Aparejador apaAsignado;
+    public String DNIaparejador;
     
     /**
      * Constructor for objects of class EfEnergetica
@@ -23,5 +23,7 @@ public class EfEnergetica extends Certificado
     {
         categorias = new ArrayList<>(asList('A','B','C','D','E','F','G'));    
         nombreUnicoTarea = str1;
+        fechaVisita = LocalDate.of(1000, 01, 01);
+        DNIaparejador = "";
     } 
 }
