@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Unifamiliar
 comment0.text=\r\n\ Vivienda\ unifamiliar.\r\n
-comment1.params=
-comment1.target=Unifamiliar()
+comment1.params=str1
+comment1.target=Unifamiliar(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 numComments=2

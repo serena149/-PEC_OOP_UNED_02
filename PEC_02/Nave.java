@@ -10,8 +10,8 @@ public class Nave extends NoResidencial
     /**
      * Constructor
      */
-    public Nave()
+    public Nave(String str1)
     {
-        //
+        nombreUnicoTarea = str1;
     }
 }

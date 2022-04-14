@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class Residencial extends Proyecto
 {
     //Variables específicas de proyecto residencial
-    String dirección;
-    float supfTerreno;
-    float supfEdificio;
-    int numPlantas;
-    int numHabitaciones;
-    int numBaños;
+    public String dirección;
+    public float supfTerreno;
+    public float supfEdificio;
+    public int numPlantas;
+    public int numHabitaciones;
+    public int numBaños;
     //historico de certificados asociados:
-    ArrayList<Certificado> historicoCert;
+    public ArrayList<Certificado> historicoCert;
 
     /**
      * Constructor

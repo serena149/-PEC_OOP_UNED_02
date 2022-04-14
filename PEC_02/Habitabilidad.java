@@ -18,9 +18,8 @@ public class Habitabilidad extends Certificado
     /**
      * Constructor
      */
-    public Habitabilidad()
+    public Habitabilidad(String str1)
     {
-        //
-        
+        nombreUnicoTarea = str1;        
     }
 }

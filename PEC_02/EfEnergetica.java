@@ -11,16 +11,17 @@ import java.time.LocalDate;
 public class EfEnergetica extends Certificado
 {
     //valores posibles:
-    ArrayList<Character> categorias;
+    private ArrayList<Character> categorias;
     //Variables para la visita del aparejador:
-    LocalDate fechaVisita;
-    Aparejador apaAsignado;
+    public LocalDate fechaVisita;
+    public Aparejador apaAsignado;
     
     /**
      * Constructor for objects of class EfEnergetica
      */
-    public EfEnergetica()
+    public EfEnergetica(String str1)
     {
-        categorias = new ArrayList<>(asList('A','B','C','D','E','F','G'));        
+        categorias = new ArrayList<>(asList('A','B','C','D','E','F','G'));    
+        nombreUnicoTarea = str1;
     } 
 }

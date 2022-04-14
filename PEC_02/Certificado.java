@@ -5,18 +5,8 @@
 
 import java.time.LocalDate;
 
-public class Certificado
+public class Certificado extends Tarea
 {
-    //Variables tras solicitud:
-    LocalDate fechaSolicitud;
-    LocalDate fechaEntrega;
-    Cliente cliente;
-    //Variables tras asignación:
-    Arquitecto arquiAsignado;
-    Contable contAsignado;
-    float coste;
-    
-
     /**
      * Constructor
      */

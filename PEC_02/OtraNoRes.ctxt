@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=OtraNoRes
 comment0.text=\r\n\ Otra\ construcci\u00F3n\ no\ residencial.\r\n
-comment1.params=
-comment1.target=OtraNoRes()
+comment1.params=str1
+comment1.target=OtraNoRes(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 numComments=2

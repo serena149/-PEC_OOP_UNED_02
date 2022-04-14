@@ -11,9 +11,10 @@ public class Aparejador extends Empleado
      * Constructor
      */
     
-    public Aparejador()
+    public Aparejador(String nif)
     {
-        //        
+        DNIoNIE = nif;
+        IDtipo = 3;
     }
 
     /**

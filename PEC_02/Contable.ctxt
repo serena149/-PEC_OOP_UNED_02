@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Contable
 comment0.text=\r\n\ Contable\r\n
-comment1.params=
-comment1.target=Contable()
+comment1.params=nif
+comment1.target=Contable(java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Contable\r\n
 comment2.params=
 comment2.target=void\ mostrarClientesCont()

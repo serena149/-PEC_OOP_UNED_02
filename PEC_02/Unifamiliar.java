@@ -10,8 +10,8 @@ public class Unifamiliar extends Residencial
     /**
      * Constructor
      */
-    public Unifamiliar()
+    public Unifamiliar(String str1)
     {
-        //
+        nombreUnicoTarea = str1;
     }
 }

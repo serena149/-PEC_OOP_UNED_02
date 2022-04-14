@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class NoResidencial extends Proyecto
 {
     //Variables específicas de no residenciales
-    String dirección;
-    float supfTerreno;
-    float supfEdificio;
-    String finalidadObra;
+    public String dirección;
+    public float supfTerreno;
+    public float supfEdificio;
+    public String finalidadObra;
     //historico de certificados asociados:
-    ArrayList<Certificado> historicoCert;
+    public ArrayList<Certificado> historicoCert;
 
     /**
      * Constructor

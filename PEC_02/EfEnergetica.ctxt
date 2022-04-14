@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=EfEnergetica
-comment1.params=
-comment1.target=EfEnergetica()
+comment1.params=str1
+comment1.target=EfEnergetica(java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EfEnergetica\r\n
 numComments=2

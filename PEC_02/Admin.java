@@ -11,18 +11,19 @@ public class Admin extends Empleado
     /**
      * Constructor for objects of class Admin
      */
-    public Admin()
+    public Admin(String nif)
     {
-        //         
+        DNIoNIE = nif;
+        IDtipo = 1;
     }
-
-   /**
+    
+    /**
     * Gestión de usuarios: altas.
     */
 
     public void altaUsuario()
     {
-        // put your code here
+        //
                 
     }
     

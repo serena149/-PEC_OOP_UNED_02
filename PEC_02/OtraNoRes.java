@@ -10,8 +10,8 @@ public class OtraNoRes extends NoResidencial
     /**
      * Constructor
     */
-    public OtraNoRes()
+    public OtraNoRes(String str1)
     {
-        //
+        nombreUnicoTarea = str1;
     }
 }

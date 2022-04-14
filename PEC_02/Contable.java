@@ -10,9 +10,10 @@ public class Contable extends Empleado
     /**
      * Constructor for objects of class Contable
      */
-    public Contable()
+    public Contable(String nif)
     {
-        //        
+        DNIoNIE = nif;
+        IDtipo = 4;    
     }
 
     /**

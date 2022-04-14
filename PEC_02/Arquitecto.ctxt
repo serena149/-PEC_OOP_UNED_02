@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Arquitecto
-comment1.params=
-comment1.target=Arquitecto()
+comment1.params=nif
+comment1.target=Arquitecto(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 comment2.params=
 comment2.target=void\ mostrarClientesArq()
@@ -11,5 +11,5 @@ comment3.target=void\ altaTarea()
 comment3.text=\r\n\ Registro\ de\ proyectos\ arquitect\u00F3nicos\ y\ certificados.\r\n
 comment4.params=
 comment4.target=void\ modTarea()
-comment4.text=\r\n\ Actualizaci\u00F3n\ de\ proyectos\ arquitect\u00F3nicos\ y\ certificados.\r\n
+comment4.text=\r\n\ Actualizaci\u00F3n\ de\ proyectos\ arquitect\u00F3nicos\ y\ certifcados.\r\n
 numComments=5

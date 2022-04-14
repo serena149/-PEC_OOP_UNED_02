@@ -5,15 +5,14 @@
 public class Rehabilitacion extends Proyecto
 {
     //Variables especificas de rehabilitación: 
-    String dirección;
-    float supf;
+    public String dirección;
+    public float supf;
 
     /**
      * Constructor
      */
-    public Rehabilitacion()
+    public Rehabilitacion(String str1)
     {
-        // initialise instance variables
-        
+        nombreUnicoTarea = str1;        
     }
 }

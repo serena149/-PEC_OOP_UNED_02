@@ -10,13 +10,13 @@ import java.time.LocalDate;
 public class ITE extends Certificado
 {
     //Variable para calcular cuando se hace necesario el certificado de ITE:
-    LocalDate fechaFinObra;
+    public LocalDate fechaFinObra;
 
     /**
      * Constructor for objects of class ITE
      */
-    public ITE()
+    public ITE(String str1)
     {
-        //
+        nombreUnicoTarea = str1;
     }
 }

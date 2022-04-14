@@ -9,8 +9,8 @@ public class Edificio extends Residencial
     /**
      * Constructor for objects of class Edificio
      */
-    public Edificio()
+    public Edificio(String str1)
     {
-        //
+        nombreUnicoTarea = str1;
     }
 }

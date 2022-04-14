@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Cliente
 comment0.text=\r\n\ Cliente\r\n
-comment1.params=
-comment1.target=Cliente()
+comment1.params=nif
+comment1.target=Cliente(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 numComments=2

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Aparejador
 comment0.text=\r\n\ Aparejador\r\n
-comment1.params=
-comment1.target=Aparejador()
+comment1.params=nif
+comment1.target=Aparejador(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 comment2.params=
 comment2.target=void\ mostrarClientesApa()

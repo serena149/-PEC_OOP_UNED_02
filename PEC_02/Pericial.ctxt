@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.target=Museo
-comment0.text=\r\n\ Museo.\r\n
+comment0.target=Pericial
 comment1.params=str1
-comment1.target=Museo(java.lang.String)
+comment1.target=Pericial(java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
 numComments=2

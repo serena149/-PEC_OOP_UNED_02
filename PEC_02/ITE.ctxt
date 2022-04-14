@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ITE
-comment1.params=
-comment1.target=ITE()
+comment1.params=str1
+comment1.target=ITE(java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ ITE\r\n
 numComments=2
