@@ -40,7 +40,6 @@ public class Arquitecto extends Empleado
         
         int aux1;
         LocalDate fechaInput1;
-        Cliente clienteInput;
         String nombreInput;
         String DNIInput;        
         boolean clienteExiste = false;
@@ -152,7 +151,6 @@ public class Arquitecto extends Empleado
             }
             
             if(!tareaExiste){
-                System.out.println("Exception?");
                 throw new Exception();                
             }
             

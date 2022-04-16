@@ -26,8 +26,65 @@ public class Admin extends Empleado
 
     public void altaUsuario()
     {
-        //
-                
+        int aux1;       
+        String DNIInput;
+        String nombreInput;
+        String ape1Input;
+        String ape2Input;
+        
+        try{
+            System.out.println("Indica DNI o NIE de la persona que estás dando de alta:");
+            DNIInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas) {
+                if(p.DNIoNIE.equals(DNIInput)){
+                        throw new Exception();
+                    }
+                }
+            
+            System.out.println("Indica el nombre:");
+            nombreInput = estudio.sc.nextLine();
+            
+            System.out.println("Indica el primer apellido:");
+            ape1Input = estudio.sc.nextLine();
+            
+            System.out.println("Indica el segundo apellido, si existe:");
+            ape2Input = estudio.sc.nextLine();
+            
+            System.out.println("Indica qué tipo de usuario deseas dar de alta:");
+            System.out.println("0: cliente, 1: administrador, 2: arquitecto, 3: aparejador, 4: contable");
+            aux1 = Integer.parseInt(estudio.sc.nextLine());
+                    
+            switch(aux1) {
+                case 0:
+                    estudio.datosPersonas.add(new Cliente(DNIInput));
+                    break;
+                case 1:
+                    estudio.datosPersonas.add(new Admin(DNIInput));
+                    break;
+                case 2:
+                    estudio.datosPersonas.add(new Arquitecto(DNIInput));
+                    break;
+                case 3:
+                    estudio.datosPersonas.add(new Aparejador(DNIInput));
+                    break;
+                case 4:
+                    estudio.datosPersonas.add(new Contable(DNIInput));
+                    break;                
+                default:
+                    throw new Exception();
+                }
+            for (Persona p : estudio.datosPersonas){
+                if(p.DNIoNIE.equals(DNIInput)){
+                    p.nombre = nombreInput;
+                    p.ape1 = ape1Input;
+                    p.ape2 = ape2Input;
+                    System.out.println("El usuario se ha grabado correctamente.");
+                }
+            }
+        } catch (Exception e){
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        }
     }
     
     /**
@@ -36,8 +93,31 @@ public class Admin extends Empleado
 
     public void bajaUsuario()
     {
-        // put your code here
-                
+        String DNIInput;
+        boolean personaExiste = false;
+        int index;
+        
+        try{
+            System.out.println("Indica DNI o NIE de la persona que estás dando de baja:");
+            DNIInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas){
+                if (p.DNIoNIE.equals(DNIInput)){
+                    personaExiste = true;
+                    estudio.datosPersonas.remove(p);
+                    System.out.println("El usuario se ha dado de baja correctamente.");
+                    break;
+                }
+            }
+            
+            if(!personaExiste){
+                throw new Exception();                
+            }
+            
+            
+        } catch(Exception e){
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        }                
     }
     
     /**
@@ -46,8 +126,47 @@ public class Admin extends Empleado
 
     public void modUsuario()
     {
-        // put your code here
-                
+        String DNIInput;
+        boolean personaExiste = false;
+        String nombreInput;
+        String ape1Input;
+        String ape2Input;
+        
+        try{
+            System.out.println("Indica DNI o NIE de la persona que estás modificando:");
+            DNIInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas){
+                if (p.DNIoNIE.equals(DNIInput)){
+                    personaExiste = true;
+                }
+            }
+            
+            if(!personaExiste){
+                throw new Exception();                
+            }
+            
+            System.out.println("Indica el nuevo nombre:");
+            nombreInput = estudio.sc.nextLine();
+            
+            System.out.println("Indica el nuevo primer apellido:");
+            ape1Input = estudio.sc.nextLine();
+            
+            System.out.println("Indica el nuevo segundo apellido, si existe:");
+            ape2Input = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas){
+                if(p.DNIoNIE.equals(DNIInput)){
+                    p.nombre = nombreInput;
+                    p.ape1 = ape1Input;
+                    p.ape2 = ape2Input;
+                    System.out.println("El usuario se ha modificado correctamente.");
+                }
+            }
+        } catch(Exception e){
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        }                
+                    
     }
     
     /**

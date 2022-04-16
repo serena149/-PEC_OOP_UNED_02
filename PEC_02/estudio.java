@@ -30,7 +30,30 @@ public class estudio
      */    
     public static void submenuAdmin(Scanner sc)
     {
-        System.out.println("Placeholder del submenu de administrador");
+        int aux1;
+        Admin ad = new Admin("");
+        
+        try{
+            System.out.println("Indica qué operación deseas realizar:");
+            System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario");
+            aux1 = Integer.parseInt(sc.nextLine());
+            
+            switch(aux1){
+                case 0:
+                    ad.altaUsuario();
+                    break;
+                case 1:
+                    ad.bajaUsuario();
+                    break;
+                case 2:
+                    ad.modUsuario();
+                    break;
+                default:
+                    throw new Exception(); 
+            }
+        } catch(Exception e) {
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        } 
     }
     
      /**
@@ -41,19 +64,24 @@ public class estudio
         int aux1;
         Arquitecto arq = new Arquitecto("");
         
-        System.out.println("Indica qué operación deseas realizar:");
-        System.out.println("0: registro de proyecto o certificado, 1: actualización de proyecto o certificado");
-        aux1 = Integer.parseInt(sc.nextLine());
-        
-        switch(aux1){
-            case 0:
-                arq.altaTarea();
-                break;
-            case 1:
-                arq.modTarea();
-                break;
-        }
-        
+        try{
+            System.out.println("Indica qué operación deseas realizar:");
+            System.out.println("0: registro de proyecto o certificado, 1: actualización de proyecto o certificado");
+            aux1 = Integer.parseInt(sc.nextLine());
+            
+            switch(aux1){
+                case 0:
+                    arq.altaTarea();
+                    break;
+                case 1:
+                    arq.modTarea();
+                    break;
+                default:
+                    throw new Exception(); 
+            }
+        } catch(Exception e) {
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        } 
     }
     
     /**
