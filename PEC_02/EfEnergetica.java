@@ -14,14 +14,14 @@ public class EfEnergetica extends Certificado
     private ArrayList<Character> categorias;
     //Variables para la visita del aparejador:
     public LocalDate fechaVisita;
-    public String DNIaparejador;
-    
+        
     /**
      * Constructor for objects of class EfEnergetica
      */
     public EfEnergetica(String str1)
     {
         categorias = new ArrayList<>(asList('A','B','C','D','E','F','G'));    
+        IDtipoTarea = 8;
         nombreUnicoTarea = str1;
         fechaVisita = LocalDate.of(1000, 01, 01);
         DNIaparejador = "";

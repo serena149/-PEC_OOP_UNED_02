@@ -15,11 +15,13 @@ public class Unifamiliar extends Residencial
      */
     public Unifamiliar(String str1)
     {
+        IDtipoTarea = 1;
         nombreUnicoTarea = str1;
         fechaSolicitud = LocalDate.of(1000, 01, 01);
         DNIcliente = "";
         DNIarquitecto = "";
         DNIcontable = "";
+        DNIaparejador = "";
         fechaEntrega = LocalDate.of(1000, 01, 01);
         coste = 0;
         dirección = "";

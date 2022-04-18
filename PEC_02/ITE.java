@@ -17,7 +17,9 @@ public class ITE extends Certificado
      */
     public ITE(String str1)
     {
+        IDtipoTarea = 7;
         nombreUnicoTarea = str1;
+        DNIaparejador = "";
         realizado = false;
     }
 }

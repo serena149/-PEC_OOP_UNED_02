@@ -183,7 +183,7 @@ public class Admin extends Empleado
         String contInput;
         
         try{
-            System.out.println("Indica el nombre único de la tarea que quieres modificar");
+            System.out.println("Indica el nombre único de la tarea que quieres asignar");
             nombreInput = estudio.sc.nextLine();
             
             for (Tarea t : estudio.datosTareas){
@@ -242,7 +242,7 @@ public class Admin extends Empleado
             personaExiste = false;
         
         } catch(Exception e){
-        
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
         }
     }
     

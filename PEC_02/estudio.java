@@ -7,6 +7,7 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDate; //DEBUG
 
 public class estudio
 {
@@ -35,7 +36,8 @@ public class estudio
         
         try{
             System.out.println("Indica qué operación deseas realizar:");
-            System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario, 3: asignación de tareas a los empleados");
+            System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario,");
+            System.out.println("3: asignación de tareas a los empleados, ");
             aux1 = Integer.parseInt(sc.nextLine());
             
             switch(aux1){
@@ -66,18 +68,25 @@ public class estudio
     {
         int aux1;
         Arquitecto arq = new Arquitecto("");
+        String DNIInput;
         
         try{
             System.out.println("Indica qué operación deseas realizar:");
-            System.out.println("0: registro de proyecto o certificado, 1: actualización de proyecto o certificado");
+            System.out.println("0: registro de proyecto o certificado, 1: actualización de proyecto o certificado, 2: visualización de clientes asignados");
             aux1 = Integer.parseInt(sc.nextLine());
-            
+                        
             switch(aux1){
                 case 0:
                     arq.altaTarea();
                     break;
                 case 1:
                     arq.modTarea();
+                    break;
+                case 2:
+                    System.out.println("Indica el DNI o NIE del arquitecto:");
+                    DNIInput = sc.nextLine();
+                    arq.DNIoNIE = DNIInput;
+                    arq.mostrarClientesArq();
                     break;
                 default:
                     throw new Exception(); 
@@ -92,7 +101,28 @@ public class estudio
      */    
     public static void submenuApa(Scanner sc)
     {
-        System.out.println("Placeholder del submenu de aparejador");
+        int aux1;
+        Aparejador ap = new Aparejador("");
+        String DNIInput;
+        
+        try{
+            System.out.println("Indica qué operación deseas realizar:");
+            System.out.println("0: visualización de clientes asignados.");
+            aux1 = Integer.parseInt(sc.nextLine());
+            
+            switch(aux1){
+                case 0:
+                    System.out.println("Indica el DNI o NIE del aparejador:");
+                    DNIInput = sc.nextLine();
+                    ap.DNIoNIE = DNIInput;
+                    ap.mostrarClientesApa();
+                    break;
+                default:
+                    throw new Exception(); 
+            }
+        } catch(Exception e) {
+            System.out.println("Error en los datos. Por favor, realiza otro intento.");
+        } 
     }  
      
     /**
@@ -169,6 +199,90 @@ public class estudio
         datosTareas = new ArrayList<Tarea>();
         datosPersonas = new ArrayList<Persona>();
         sc = new Scanner(System.in);      
+        
+        //DEBUG BORRAR
+        datosPersonas.add(new Cliente("1"));
+        datosPersonas.get(0).nombre = "Sere";
+        datosPersonas.get(0).ape1 = "N";
+        datosPersonas.get(0).ape2 = "A";
+        
+        datosPersonas.add(new Cliente("2"));
+        datosPersonas.get(1).nombre = "Fe";
+        datosPersonas.get(1).ape1 = "Li";
+        datosPersonas.get(1).ape2 = "Pe";
+        
+        datosPersonas.add(new Cliente("3"));
+        datosPersonas.add(new Cliente("4"));
+        datosPersonas.add(new Cliente("5")); 
+        
+        datosPersonas.add(new Arquitecto("a"));
+        datosPersonas.add(new Arquitecto("b"));
+        datosPersonas.add(new Arquitecto("c"));
+        datosPersonas.add(new Arquitecto("d"));
+        datosPersonas.add(new Arquitecto("e"));
+        
+        datosPersonas.add(new Aparejador("x"));
+        datosPersonas.add(new Aparejador("y"));
+        
+        datosTareas.add(new Edificio("Descripcion del edificio"));
+        datosTareas.get(0).DNIcliente = "1";
+        datosTareas.get(0).DNIarquitecto = "a";
+        datosTareas.get(0).DNIaparejador = "x";
+        datosTareas.get(0).fechaSolicitud = LocalDate.parse("2022-05-23");
+        
+        datosTareas.add(new Unifamiliar("Descripcion del unifamiliar"));
+        datosTareas.get(1).DNIcliente = "1";
+        datosTareas.get(1).DNIarquitecto = "a";
+        datosTareas.get(1).DNIaparejador = "x";
+        datosTareas.get(1).fechaSolicitud = LocalDate.parse("2022-05-23");
+        datosTareas.get(1).realizado = true;
+        
+        datosTareas.add(new Nave("Descripcion de la nave"));
+        datosTareas.get(2).DNIcliente = "2";
+        datosTareas.get(2).DNIarquitecto = "b";
+        datosTareas.get(2).DNIaparejador = "x";
+        datosTareas.get(2).fechaSolicitud = LocalDate.parse("2022-07-23");
+        
+        datosTareas.add(new Museo("Descripcion museo"));
+        datosTareas.get(3).DNIcliente = "2";
+        datosTareas.get(3).DNIarquitecto = "b";
+        datosTareas.get(3).fechaSolicitud = LocalDate.parse("2022-07-23");
+        
+        datosTareas.add(new OtraNoRes("Descripcion OtraNoRes"));
+        datosTareas.get(4).DNIcliente = "3";
+        datosTareas.get(4).DNIarquitecto = "c";
+        datosTareas.get(4).fechaSolicitud = LocalDate.parse("2022-01-01");
+        datosTareas.get(4).realizado = true;
+        
+        datosTareas.add(new Rehabilitacion("Descripcion rehabilitacion"));
+        datosTareas.get(5).DNIcliente = "3";
+        datosTareas.get(5).DNIarquitecto = "c";
+        datosTareas.get(5).fechaSolicitud = LocalDate.parse("2022-01-01");
+        
+        datosTareas.add(new Habitabilidad("Descripcion certif habitabilidad"));
+        datosTareas.get(6).DNIcliente = "4";
+        datosTareas.get(6).DNIarquitecto = "d";
+        datosTareas.get(6).fechaSolicitud = LocalDate.parse("2022-04-04");
+        
+        datosTareas.add(new ITE("Descripcion certif ITE"));
+        datosTareas.get(7).DNIcliente = "4";
+        datosTareas.get(7).DNIarquitecto = "d";
+        datosTareas.get(7).DNIaparejador = "x";
+        datosTareas.get(7).fechaSolicitud = LocalDate.parse("2022-04-04");
+        
+        datosTareas.add(new EfEnergetica("Descripcion certif EfEnergetica"));
+        datosTareas.get(8).DNIcliente = "5";
+        datosTareas.get(8).DNIarquitecto = "e";
+        datosTareas.get(8).fechaSolicitud = LocalDate.parse("2022-01-04");
+                
+        datosTareas.add(new Pericial("Descripcion inf pericial"));
+        datosTareas.get(9).DNIcliente = "5";
+        datosTareas.get(9).DNIarquitecto = "e";
+        datosTareas.get(9).DNIaparejador = "x";
+        datosTareas.get(9).fechaSolicitud = LocalDate.parse("2022-01-04");
+    
+        
+        //FIN DEBUG BORRAR
         
         Menu(sc);   
     }
