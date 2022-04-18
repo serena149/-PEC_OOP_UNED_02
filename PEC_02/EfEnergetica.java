@@ -25,5 +25,6 @@ public class EfEnergetica extends Certificado
         nombreUnicoTarea = str1;
         fechaVisita = LocalDate.of(1000, 01, 01);
         DNIaparejador = "";
+        realizado = false;
     } 
 }

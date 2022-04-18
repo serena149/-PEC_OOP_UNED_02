@@ -42,7 +42,9 @@ public class Arquitecto extends Empleado
         LocalDate fechaInput1;
         String nombreInput;
         String DNIInput;        
+        String DNIInput2; 
         boolean clienteExiste = false;
+        boolean arquiExiste = false;
         
         try {                 
             System.out.println("Indica una fecha de solicitud con formato aaaa-mm-dd");
@@ -56,8 +58,7 @@ public class Arquitecto extends Empleado
                         throw new Exception();
                     }
                 }
-            
-            
+                        
             System.out.println("Indica el DNI del cliente");
             DNIInput = estudio.sc.nextLine();   
                         
@@ -67,6 +68,19 @@ public class Arquitecto extends Empleado
                     }
                 }
             
+            if(!clienteExiste){
+                throw new Exception();
+            }
+            
+            System.out.println("Indica el DNI del arquitecto");
+            DNIInput2 = estudio.sc.nextLine();   
+                        
+            for (Persona p : estudio.datosPersonas) {
+                    if((p.DNIoNIE.equals(DNIInput2) && p.IDtipo == 2)){
+                        arquiExiste = true;
+                    }
+                }
+                
             if(!clienteExiste){
                 throw new Exception();
             }
@@ -118,8 +132,7 @@ public class Arquitecto extends Empleado
                     t.DNIarquitecto = DNIoNIE;       
                     System.out.println("La tarea se ha grabado correctamente.");
                 }                
-            }            
-                  
+            } 
             
             } catch (Exception e) {
                 System.out.println("Error en los datos. Por favor, realiza otro intento.");

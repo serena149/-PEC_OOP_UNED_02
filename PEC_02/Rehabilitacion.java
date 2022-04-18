@@ -24,5 +24,6 @@ public class Rehabilitacion extends Proyecto
         fechaFinObra = LocalDate.of(1000, 01, 01);
         dirección = "";
         supf = 0;
+        realizado = false;
     }
 }

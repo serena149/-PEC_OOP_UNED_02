@@ -29,5 +29,6 @@ public class Edificio extends Residencial
         numHabitaciones = 0;
         numBaños = 0;
         historicoCert = new ArrayList<Certificado>();
+        realizado = false;
     }
 }

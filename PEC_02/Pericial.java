@@ -1,6 +1,6 @@
 
 /**
- * Informe Periciales
+ * Informe Pericial
 */
 
 import java.time.LocalDate;
@@ -19,5 +19,6 @@ public class Pericial extends Certificado
         nombreUnicoTarea = str1;
         DNIarquitecto = "";
         fechaEmision = LocalDate.of(1000, 01, 01);
+        realizado = false;
     }
 }

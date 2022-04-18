@@ -25,5 +25,6 @@ public class Habitabilidad extends Certificado
         fechaVisita = LocalDate.of(1000, 01, 01);
         DNIarquitecto = "";
         fechaEmision = LocalDate.of(1000, 01, 01);
+        realizado = false;
     }
 }

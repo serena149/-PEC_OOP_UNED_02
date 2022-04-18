@@ -27,6 +27,6 @@ public class OtraNoRes extends NoResidencial
         supfEdificio = 0;
         finalidadObra = "";
         historicoCert = new ArrayList<Certificado>();
-
+        realizado = false;
     }
 }

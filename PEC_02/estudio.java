@@ -35,7 +35,7 @@ public class estudio
         
         try{
             System.out.println("Indica qué operación deseas realizar:");
-            System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario");
+            System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario, 3: asignación de tareas a los empleados");
             aux1 = Integer.parseInt(sc.nextLine());
             
             switch(aux1){
@@ -47,6 +47,9 @@ public class estudio
                     break;
                 case 2:
                     ad.modUsuario();
+                    break;
+                case 3:
+                    ad.asignarEmpleado();
                     break;
                 default:
                     throw new Exception(); 

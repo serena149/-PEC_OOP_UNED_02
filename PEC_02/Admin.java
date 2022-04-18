@@ -171,12 +171,79 @@ public class Admin extends Empleado
     
     /**
      * Asignación de arquitectos, aparejadores y contables a proyectos y certificados.
-    */
+     */
 
     public void asignarEmpleado()
     {
-        // put your code here
-                
+        String nombreInput;
+        boolean tareaExiste = false;
+        boolean personaExiste = false;
+        String arquiInput;
+        String apaInput;
+        String contInput;
+        
+        try{
+            System.out.println("Indica el nombre único de la tarea que quieres modificar");
+            nombreInput = estudio.sc.nextLine();
+            
+            for (Tarea t : estudio.datosTareas){
+                if (t.nombreUnicoTarea.equals(nombreInput)){
+                    tareaExiste = true;
+                }
+            }
+            
+            if(!tareaExiste){
+                throw new Exception();                
+            }
+            
+            System.out.println("Indica el DNI del arquitecto al que quieres asignar la tarea:");
+            arquiInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas) {
+                    if((p.DNIoNIE.equals(arquiInput) && p.IDtipo == 2)){
+                        personaExiste = true;
+                    }
+                }
+            
+            if(!personaExiste){
+                throw new Exception();
+            }
+            
+            personaExiste = false;
+            
+            System.out.println("Indica el DNI del aparejador al que quieres asignar la tarea:");
+            apaInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas) {
+                    if((p.DNIoNIE.equals(apaInput) && p.IDtipo == 3)){
+                        personaExiste = true;
+                    }
+                }
+            
+            if(!personaExiste){
+                throw new Exception();
+            }
+            
+            personaExiste = false;
+            
+            System.out.println("Indica el DNI del contable al que quieres asignar la tarea:");
+            contInput = estudio.sc.nextLine();
+            
+            for (Persona p : estudio.datosPersonas) {
+                    if((p.DNIoNIE.equals(contInput) && p.IDtipo == 4)){
+                        personaExiste = true;
+                    }
+                }
+            
+            if(!personaExiste){
+                throw new Exception();
+            }
+            
+            personaExiste = false;
+        
+        } catch(Exception e){
+        
+        }
     }
     
     /**

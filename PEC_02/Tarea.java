@@ -21,6 +21,8 @@ public class Tarea
     //Variable tras valoración por contable:
     public float coste;
     
+    boolean realizado;
+    
     /**
      * Constructor for objects of class Tarea
      */
