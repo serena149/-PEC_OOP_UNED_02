@@ -21,7 +21,7 @@ public class Aparejador extends Empleado
     }
 
     /**
-     * Visualización de datos de los clientes asignados (proyectos, certificados y ejecución de obras contratadas).
+     * Visualización de datos de los clientes, proyectos arquitectónicos y certificados a los que ha sido asignado.
      */
     
     public void mostrarClientesApa()
@@ -88,26 +88,17 @@ public class Aparejador extends Empleado
             }
             
             if(!hayTareas){
-                System.out.println("No se han encontrado clientes asignados.");
+                System.out.println("No se han encontrado tareas.");
             }
             
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
             System.out.println(e);
-}        
+        }
         
     }
     
-    /**
-     * Consulta de proyectos arquitectónicos y certificados a los que ha sido asignado.
-     */
-    
-    public void mostrarTareasApa()
-    {
-        // put your code here
-        
-    }
-    
+
     /**
      * Visualización de listado de clientes en función de visitas pendientes para la emisión de certificados.
      */

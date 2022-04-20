@@ -89,7 +89,7 @@ public class Arquitecto extends Empleado
             }
             
             if(!hayTareas){
-                System.out.println("No se han encontrado clientes asignados.");
+                System.out.println("No se han encontrado tareas.");
             }
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
@@ -218,6 +218,7 @@ public class Arquitecto extends Empleado
         boolean clienteExiste = false;
         LocalDate fechaInput1;
         String DNIInput;
+        String realizadoString;
     
         try{
             System.out.println("Indica el nombre único de la tarea que quieres modificar");
@@ -248,11 +249,19 @@ public class Arquitecto extends Empleado
                 throw new Exception();
             }
             
+            System.out.println("Se trata de una tareas realizada? S/N");
+            realizadoString = estudio.sc.nextLine();
+            
             for (Tarea t : estudio.datosTareas){
                 if(t.nombreUnicoTarea.equals(nombreInput)){
                     t.fechaSolicitud = fechaInput1;
                     t.DNIcliente = DNIInput;
-                    t.DNIarquitecto = DNIoNIE;    
+                    t.DNIarquitecto = DNIoNIE;
+                    
+                    if(realizadoString.equals("S")){
+                        t.realizado = true;
+                    }
+                    
                     System.out.println("La tarea se ha grabado correctamente.");
                 }                
             }            
