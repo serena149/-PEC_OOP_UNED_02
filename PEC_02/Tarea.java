@@ -1,8 +1,5 @@
 /**
- * Write a description of class Tarea here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Tarea
  */
 
 import java.time.LocalDate;

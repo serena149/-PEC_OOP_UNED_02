@@ -20,6 +20,13 @@ public class ITE extends Certificado
         IDtipoTarea = 7;
         nombreUnicoTarea = str1;
         DNIaparejador = "";
+        DNIarquitecto = "";
+        DNIcliente = "";
+        DNIcontable = "";
+        fechaSolicitud = LocalDate.of(1000, 01, 01);
+        fechaEntrega = LocalDate.of(1000, 01, 01);
+        fechaFinObra = LocalDate.of(1000, 01, 01);
+        coste = 0;
         realizado = false;
     }
 }

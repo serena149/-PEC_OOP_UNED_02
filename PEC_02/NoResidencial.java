@@ -21,7 +21,7 @@ public class NoResidencial extends Proyecto
      */
     public NoResidencial()
     {
-        // initialise instance variables
+        //
         
     }
 }

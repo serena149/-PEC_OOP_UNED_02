@@ -36,7 +36,7 @@ public class Arquitecto extends Empleado
                         if(t.DNIcliente.equals(p.DNIoNIE) && t.DNIarquitecto.equals(DNIoNIE)){
                             hayTareas = true;
                             System.out.println("");
-                            System.out.println("Cliente con DNI " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                            System.out.println("Cliente con DNI o NIE " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
                             System.out.print("Tarea: ");
                             switch(t.IDtipoTarea){
                                 case 0:
@@ -129,7 +129,7 @@ public class Arquitecto extends Empleado
             DNIInput = estudio.sc.nextLine();   
                         
             for (Persona p : estudio.datosPersonas) {
-                    if((p.DNIoNIE.equals(DNIInput) && p.IDtipo == 0)){
+                    if(p.DNIoNIE.equals(DNIInput) && p.IDtipo == 0){
                         clienteExiste = true;
                     }
                 }
@@ -255,8 +255,7 @@ public class Arquitecto extends Empleado
             for (Tarea t : estudio.datosTareas){
                 if(t.nombreUnicoTarea.equals(nombreInput)){
                     t.fechaSolicitud = fechaInput1;
-                    t.DNIcliente = DNIInput;
-                    t.DNIarquitecto = DNIoNIE;
+                    t.DNIcliente = DNIInput;                    
                     
                     if(realizadoString.equals("S")){
                         t.realizado = true;

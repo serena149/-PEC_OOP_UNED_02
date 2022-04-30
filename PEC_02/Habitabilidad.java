@@ -9,8 +9,7 @@ public class Habitabilidad extends Certificado
 {
     //Variables para guardar la visita del aparejador:
     public LocalDate fechaVisita;
-    //Variable para el arquitecto:
-    public String DNIarquitecto;
+    //Variable para el arquitecto:    
     public LocalDate fechaEmision;
     
     /**
@@ -21,9 +20,14 @@ public class Habitabilidad extends Certificado
         IDtipoTarea = 6;
         nombreUnicoTarea = str1;
         DNIaparejador = "";
-        fechaVisita = LocalDate.of(1000, 01, 01);
+        DNIcliente = "";
         DNIarquitecto = "";
+        DNIcontable = "";
+        fechaSolicitud = LocalDate.of(1000, 01, 01);
+        fechaVisita = LocalDate.of(1000, 01, 01);        
         fechaEmision = LocalDate.of(1000, 01, 01);
-        realizado = false;
+        fechaEntrega = LocalDate.of(1000, 01, 01);
+        coste = 0;
+        realizado = false;    
     }
 }

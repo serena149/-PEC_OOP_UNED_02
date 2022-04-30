@@ -24,7 +24,13 @@ public class EfEnergetica extends Certificado
         IDtipoTarea = 8;
         nombreUnicoTarea = str1;
         fechaVisita = LocalDate.of(1000, 01, 01);
+        fechaSolicitud = LocalDate.of(1000, 01, 01);
+        fechaEntrega = LocalDate.of(1000, 01, 01);
         DNIaparejador = "";
-        realizado = false;
+        DNIcontable = "";
+        DNIcliente = "";
+        DNIarquitecto = "";
+        coste = 0;
+        realizado = false;        
     } 
 }

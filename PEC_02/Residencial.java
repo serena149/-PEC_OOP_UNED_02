@@ -22,7 +22,7 @@ public class Residencial extends Proyecto
      */
     public Residencial()
     {
-        // initialise instance variables
+        //
         
     }   
 }

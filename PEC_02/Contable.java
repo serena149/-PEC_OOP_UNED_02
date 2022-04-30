@@ -24,7 +24,7 @@ public class Contable extends Empleado
      */
     public void mostrarClientesCont()
     {
-        // put your code here
+        //
         
     }
     
@@ -33,7 +33,6 @@ public class Contable extends Empleado
      */
     public void registrarPresu()
     {
-        // put your code here
-        
+        //
     }
 }

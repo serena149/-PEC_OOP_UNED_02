@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Administrador
@@ -252,8 +253,29 @@ public class Admin extends Empleado
 
     public void mostrarTodosDatos()
     {
-        // put your code here
+        System.out.println("Datos de las personas dadas de alta en el sistema:"); 
+        for (Persona p : estudio.datosPersonas){
+            switch (p.IDtipo){
+                 case 0:
+                     System.out.print("Cliente");
+                     break;
+                 case 1:
+                     System.out.print("Admin");
+                     break;
+                 case 2:
+                     System.out.print("Arquitecto");
+                     break;
+                 case 3:
+                     System.out.print("Aparejador");
+                     break;
+                 case 4:
+                     System.out.print("Contable");
+                 default:
+                     break;
+                }
                 
+            System.out.println(" con DNI o NIE: " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+            }                
     }
     
     /**
@@ -261,10 +283,10 @@ public class Admin extends Empleado
     */
 
     public void mostrarClientes()
-    {
-        // put your code here
-                
+    {                     
+        //
     }
+
     
     /**
      * Visualización del listado de viviendas/edificios y las fechas de fin de obra.    
@@ -272,7 +294,7 @@ public class Admin extends Empleado
 
     public void mostrarFechaFinObra()
     {
-        // put your code here
+        //
                 
     }
     
@@ -282,7 +304,7 @@ public class Admin extends Empleado
 
     public void mostrarCertHabit()
     {
-        // put your code here
+        //
                 
     }
     
@@ -292,7 +314,7 @@ public class Admin extends Empleado
 
     public void mostrarTareasVivienda()
     {
-        // put your code here
+        //
                 
     }
     
@@ -302,7 +324,7 @@ public class Admin extends Empleado
 
     public void mostrarPlan()
     {
-        // put your code here
+        //
                 
     }
     
@@ -311,7 +333,7 @@ public class Admin extends Empleado
     */
     public void buscarViviendasITE()
         {
-            // put your code here
+            //
                     
         }
         
@@ -320,7 +342,7 @@ public class Admin extends Empleado
     */
     public void buscarHabitabilidadCumpl()
         {
-            // put your code here
+            //
                     
         }
     /**
@@ -331,11 +353,8 @@ public class Admin extends Empleado
     */
     public void gestionCalendario()
         {
-            // put your code here
+            //
                     
         }
-        
-        
-
-
+    
 }

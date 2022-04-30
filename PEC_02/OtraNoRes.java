@@ -1,4 +1,3 @@
-
 /**
  * Otra construcción no residencial.
 */

@@ -7,7 +7,9 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.time.LocalDate; //DEBUG
+//DEBUG BORRAR
+import java.time.LocalDate;
+//FIN DEBUG BORRAR
 
 public class estudio
 {
@@ -37,7 +39,9 @@ public class estudio
         try{
             System.out.println("Indica qué operación deseas realizar:");
             System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario,");
-            System.out.println("3: asignación de tareas a los empleados, ");
+            System.out.println("3: asignación de tareas a los empleados, 4: visualización de todos los usuarios,");
+            System.out.println("5: visualización de clientes por cada arquitecto y aparejador");
+            
             aux1 = Integer.parseInt(sc.nextLine());
             
             switch(aux1){
@@ -53,6 +57,11 @@ public class estudio
                 case 3:
                     ad.asignarEmpleado();
                     break;
+                case 4:
+                    ad.mostrarTodosDatos();
+                    break;
+                case 5:
+                    ad.mostrarClientes();
                 default:
                     throw new Exception(); 
             }
@@ -130,7 +139,7 @@ public class estudio
      */    
     public static void submenuCont(Scanner sc)
     {
-        System.out.println("Placeholder del submenu de contable");
+        System.out.println("Submenu contable");
     }
      
     /**
@@ -198,8 +207,8 @@ public class estudio
         //Se inicializan las variables si se decide usar main       
         datosTareas = new ArrayList<Tarea>();
         datosPersonas = new ArrayList<Persona>();
-        sc = new Scanner(System.in);      
-        
+        sc = new Scanner(System.in);
+               
         //DEBUG BORRAR
         datosPersonas.add(new Cliente("1"));
         datosPersonas.get(0).nombre = "Sere";
@@ -212,17 +221,54 @@ public class estudio
         datosPersonas.get(1).ape2 = "Pe";
         
         datosPersonas.add(new Cliente("3"));
+        datosPersonas.get(2).nombre = "Ismael";
+        datosPersonas.get(2).ape1 = "Perez";
+        datosPersonas.get(2).ape2 = "Serrano";
+        
         datosPersonas.add(new Cliente("4"));
-        datosPersonas.add(new Cliente("5")); 
+        datosPersonas.get(3).nombre = "Barbara";
+        datosPersonas.get(3).ape1 = "Maga";
+        datosPersonas.get(3).ape2 = "";
+        
+        datosPersonas.add(new Cliente("5"));        
+        datosPersonas.get(4).nombre = "Barbara";
+        datosPersonas.get(4).ape1 = "Maga";
+        datosPersonas.get(4).ape2 = "";
         
         datosPersonas.add(new Arquitecto("a"));
+        datosPersonas.get(5).nombre = "Antonio";
+        datosPersonas.get(5).ape1 = "Arqui";
+        datosPersonas.get(5).ape2 = "Tecto";        
+        
         datosPersonas.add(new Arquitecto("b"));
+        datosPersonas.get(6).nombre = "Ter";
+        datosPersonas.get(6).ape1 = "Arqui";
+        datosPersonas.get(6).ape2 = "Ter";
+        
         datosPersonas.add(new Arquitecto("c"));
+        datosPersonas.get(7).nombre = "Esther";
+        datosPersonas.get(7).ape1 = "Dos";
+        datosPersonas.get(7).ape2 = "";
+        
         datosPersonas.add(new Arquitecto("d"));
+        datosPersonas.get(8).nombre = "Otro";
+        datosPersonas.get(8).ape1 = "Arqui";
+        datosPersonas.get(8).ape2 = "Tecto";
+        
         datosPersonas.add(new Arquitecto("e"));
+        datosPersonas.get(9).nombre = "Ultimo";
+        datosPersonas.get(9).ape1 = "Arqui";
+        datosPersonas.get(9).ape2 = "Tecto";
         
         datosPersonas.add(new Aparejador("x"));
+        datosPersonas.get(10).nombre = "Mendoza";
+        datosPersonas.get(10).ape1 = "Oza";
+        datosPersonas.get(10).ape2 = "Oza";
+                
         datosPersonas.add(new Aparejador("y"));
+        datosPersonas.get(6).nombre = "Seres";
+        datosPersonas.get(6).ape1 = "Que";
+        datosPersonas.get(6).ape2 = "Re";        
         
         datosTareas.add(new Edificio("Descripcion del edificio"));
         datosTareas.get(0).DNIcliente = "1";
@@ -279,10 +325,10 @@ public class estudio
         datosTareas.get(9).DNIcliente = "5";
         datosTareas.get(9).DNIarquitecto = "e";
         datosTareas.get(9).DNIaparejador = "x";
-        datosTareas.get(9).fechaSolicitud = LocalDate.parse("2022-01-04");
-    
+        datosTareas.get(9).fechaSolicitud = LocalDate.parse("2022-01-04");    
         
-        //FIN DEBUG BORRAR
+        //FIN DEBUG BORRAR        
+        
         
         Menu(sc);   
     }
