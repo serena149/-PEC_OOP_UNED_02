@@ -21,5 +21,21 @@ public class Proyecto extends Tarea
     {
         //
         
+    }   
+    
+    /**
+    * get para la variable fechaFinObra
+    */
+    
+    public LocalDate getFechaFinObra(){
+        return fechaFinObra;
+    }
+    
+    /**
+    * set para la variable fechaFinObra
+    */
+    
+    public void setFechaFinObra(LocalDate nuevaFecha){
+        fechaFinObra = nuevaFecha;
     }
 }

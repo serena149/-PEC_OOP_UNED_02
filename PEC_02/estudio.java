@@ -40,8 +40,8 @@ public class estudio
             System.out.println("Indica qué operación deseas realizar:");
             System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario,");
             System.out.println("3: asignación de tareas a los empleados, 4: visualización de todos los usuarios,");
-            System.out.println("5: visualización de clientes por cada arquitecto y aparejador");
-            
+            System.out.println("5: visualización de clientes por cada arquitecto y aparejador,");         
+            System.out.println("6: visualización de listado de viviendas/edificios y fechas de fin de obra,");
             aux1 = Integer.parseInt(sc.nextLine());
             
             switch(aux1){
@@ -62,8 +62,12 @@ public class estudio
                     break;
                 case 5:
                     ad.mostrarClientes();
+                    break;
+                case 6:
+                    ad.mostrarFechaFinObra();
+                    break;
                 default:
-                    throw new Exception(); 
+                    throw new Exception();
             }
         } catch(Exception e) {
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
@@ -208,8 +212,7 @@ public class estudio
         datosTareas = new ArrayList<Tarea>();
         datosPersonas = new ArrayList<Persona>();
         sc = new Scanner(System.in);
-               
-        //DEBUG BORRAR
+                
         datosPersonas.add(new Cliente("1"));
         datosPersonas.get(0).nombre = "Sere";
         datosPersonas.get(0).ape1 = "N";
@@ -231,9 +234,9 @@ public class estudio
         datosPersonas.get(3).ape2 = "";
         
         datosPersonas.add(new Cliente("5"));        
-        datosPersonas.get(4).nombre = "Barbara";
-        datosPersonas.get(4).ape1 = "Maga";
-        datosPersonas.get(4).ape2 = "";
+        datosPersonas.get(4).nombre = "Me";
+        datosPersonas.get(4).ape1 = "Quivo";
+        datosPersonas.get(4).ape2 = "Cao";
         
         datosPersonas.add(new Arquitecto("a"));
         datosPersonas.get(5).nombre = "Antonio";
@@ -266,23 +269,27 @@ public class estudio
         datosPersonas.get(10).ape2 = "Oza";
                 
         datosPersonas.add(new Aparejador("y"));
-        datosPersonas.get(6).nombre = "Seres";
-        datosPersonas.get(6).ape1 = "Que";
-        datosPersonas.get(6).ape2 = "Re";        
+        datosPersonas.get(11).nombre = "Quere";
+        datosPersonas.get(11).ape1 = "Se";
+        datosPersonas.get(11).ape2 = "Res";        
         
         datosTareas.add(new Edificio("Descripcion del edificio"));
         datosTareas.get(0).DNIcliente = "1";
         datosTareas.get(0).DNIarquitecto = "a";
         datosTareas.get(0).DNIaparejador = "x";
         datosTareas.get(0).fechaSolicitud = LocalDate.parse("2022-05-23");
-        
+        Proyecto borrar = (Proyecto) datosTareas.get(0); //es una referencia
+        borrar.fechaFinObra = LocalDate.parse("2022-05-23");
+                        
         datosTareas.add(new Unifamiliar("Descripcion del unifamiliar"));
         datosTareas.get(1).DNIcliente = "1";
         datosTareas.get(1).DNIarquitecto = "a";
         datosTareas.get(1).DNIaparejador = "x";
         datosTareas.get(1).fechaSolicitud = LocalDate.parse("2022-05-23");
-        datosTareas.get(1).realizado = true;
-        
+        datosTareas.get(1).realizado = true;    
+        borrar = (Proyecto) datosTareas.get(1); //es una referencia
+        borrar.fechaFinObra = LocalDate.parse("2025-01-31");
+                
         datosTareas.add(new Nave("Descripcion de la nave"));
         datosTareas.get(2).DNIcliente = "2";
         datosTareas.get(2).DNIarquitecto = "b";

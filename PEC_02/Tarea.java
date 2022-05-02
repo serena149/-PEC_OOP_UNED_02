@@ -17,8 +17,8 @@ public class Tarea
     public String DNIaparejador;
     LocalDate fechaEntrega;
     //Variable tras valoración por contable:
-    public float coste;
-    
+    public float coste;   
+    //realizado
     boolean realizado;
 
     

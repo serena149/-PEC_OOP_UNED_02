@@ -283,8 +283,43 @@ public class Admin extends Empleado
     */
 
     public void mostrarClientes()
-    {                     
-        //
+    {
+        //recorre el array de personas
+        for(Persona p : estudio.datosPersonas){
+            ArrayList<String> listaDNIclientes = new ArrayList<String>();          
+            //si es se trata de un arquitecto o aparejador
+            if(p.IDtipo == 2 || p.IDtipo == 3){
+                switch(p.IDtipo){
+                    case 2:
+                         System.out.print("Arquitecto");
+                         break;
+                     case 3:
+                         System.out.print("Aparejador");
+                         break;
+                }
+                System.out.println(" con DNI o NIE: " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                
+                //búsqueda de clientes para el arquitecto o aparejador, evitando duplicados:
+                for (Tarea t : estudio.datosTareas){
+                    if((t.DNIarquitecto.equals(p.DNIoNIE) || t.DNIaparejador.equals(p.DNIoNIE)) && !listaDNIclientes.contains(t.DNIcliente)){
+                        listaDNIclientes.add(t.DNIcliente);
+                    }
+                }
+                
+                //impresión de la lista
+                if(listaDNIclientes.size() == 0){
+                    System.out.println("    No resultan clientes asignados.");
+                } else {
+                    for(String str : listaDNIclientes){
+                        for(Persona p1 : estudio.datosPersonas){
+                            if(p1.DNIoNIE.equals(str)){
+                                System.out.println("    Cliente con DNI o NIE: " + p1.DNIoNIE + ", " + p1.nombre + " " + p1. ape1 + " " + p1.ape2);
+                            }
+                        }
+                    }
+                }
+            }
+        }            
     }
 
     
@@ -294,7 +329,39 @@ public class Admin extends Empleado
 
     public void mostrarFechaFinObra()
     {
-        //
+        Proyecto temp;
+        
+        //busqueda de tareas tipo proyecto
+        for(Tarea t : estudio.datosTareas){
+            switch(t.IDtipoTarea){
+                case 0:                    
+                    System.out.print("Bloque de viviendas ");
+                    break;
+                case 1:
+                    System.out.print("Vivienda unifamiliar ");
+                    break;
+                case 2:
+                    System.out.print("Nave industrial ");
+                    break;
+                case 3:
+                    System.out.print("Museo ");
+                    break;
+                case 4:
+                    System.out.print("Otra construcción no residencial ");
+                    break;
+                case 5:
+                    System.out.print("Proyecto de rehabilitación ");
+                    break;
+                default:
+                    break;
+            }
+            
+            //casteo a Proyecto para poder acceder a fechaFinObra
+            if(t.IDtipoTarea <= 5){
+                temp = (Proyecto) t;
+                System.out.println("con fecha de fin de obra: " + temp.fechaFinObra);
+            }
+        }
                 
     }
     
@@ -345,6 +412,7 @@ public class Admin extends Empleado
             //
                     
         }
+        
     /**
     * Una vez el cliente ha obtenido el proyecto y decide que el propio estudio desarrolle la obra, el administrador gestionará el calendario 
     * teniendo en cuenta que el estudio no puede tener más de tres obras en marcha al mismo tiempo.
