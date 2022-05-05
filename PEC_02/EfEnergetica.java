@@ -20,17 +20,19 @@ public class EfEnergetica extends Certificado
      */
     public EfEnergetica(String str1)
     {
-        categorias = new ArrayList<>(asList('A','B','C','D','E','F','G'));    
         IDtipoTarea = 8;
         nombreUnicoTarea = str1;
-        fechaVisita = LocalDate.of(1000, 01, 01);
+        //Variables heredadas de Tarea:
         fechaSolicitud = LocalDate.of(1000, 01, 01);
-        fechaEntrega = LocalDate.of(1000, 01, 01);
-        DNIaparejador = "";
-        DNIcontable = "";
         DNIcliente = "";
         DNIarquitecto = "";
-        coste = 0;
-        realizado = false;        
+        DNIcontable = "";
+        DNIaparejador = "";
+        fechaEntrega = LocalDate.of(1000, 01, 01);
+        coste = 0f; 
+        realizado = false; 
+        //Variables propias:
+        categorias = new ArrayList<>(asList('A','B','C','D','E','F','G')); 
+        fechaVisita = LocalDate.of(1000, 01, 01);
     } 
 }

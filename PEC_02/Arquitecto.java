@@ -111,6 +111,10 @@ public class Arquitecto extends Empleado
         String DNIInput2; 
         boolean clienteExiste = false;
         boolean arquiExiste = false;
+        LocalDate fechaInput2;
+        Residencial res1;
+        NoResidencial noRes1;
+        Habitabilidad hab1;
         
         try {                 
             System.out.println("Indica una fecha de solicitud con formato aaaa-mm-dd");
@@ -190,12 +194,31 @@ public class Arquitecto extends Empleado
                 default:
                     throw new Exception();                    
                 }
-            
+                                        
+                
             for (Tarea t : estudio.datosTareas){
                 if(t.nombreUnicoTarea.equals(nombreInput)){
                     t.fechaSolicitud = fechaInput1;
                     t.DNIcliente = DNIInput;
-                    t.DNIarquitecto = DNIoNIE;       
+                    t.DNIarquitecto = DNIoNIE;
+                    
+                    //Si se trata de un edificio/vivienda, se solicita y se graba también la fecha de emisión del certificado de habitabilidad más reciente:
+                    if(aux1 >= 0 && aux1 <= 4){
+                        System.out.println("Indica la fecha del certificado de habitabilidad más reciente con formato aaaa-mm-dd");
+                        fechaInput2 = LocalDate.parse(estudio.sc.nextLine());
+                        if(aux1 >= 0 && aux1 <= 1){
+                            res1 = (Residencial) t;
+                            res1.historicoCert.add(new Habitabilidad(""));
+                            hab1 = (Habitabilidad) res1.historicoCert.get(res1.historicoCert.size() - 1);
+                            hab1.fechaEmision = fechaInput2;
+                        } else if(aux1 >= 2 && aux1 <= 4){
+                            noRes1 = (NoResidencial) t;
+                            noRes1.historicoCert.add(new Habitabilidad(""));
+                            hab1 = (Habitabilidad) noRes1.historicoCert.get(noRes1.historicoCert.size() - 1);
+                            hab1.fechaEmision = fechaInput2;
+                        }
+                    }                  
+                    
                     System.out.println("La tarea se ha grabado correctamente.");
                 }                
             } 

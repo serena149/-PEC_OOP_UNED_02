@@ -17,14 +17,16 @@ public class Pericial extends Certificado
     {
         IDtipoTarea = 9;
         nombreUnicoTarea = str1;
+        //Variables heredadas de Tarea:
+        fechaSolicitud = LocalDate.of(1000, 01, 01);
         DNIcliente = "";
         DNIarquitecto = "";
-        DNIaparejador = "";
         DNIcontable = "";
-        fechaSolicitud = LocalDate.of(1000, 01, 01);
-        fechaEmision = LocalDate.of(1000, 01, 01);
+        DNIaparejador = "";
         fechaEntrega = LocalDate.of(1000, 01, 01);
-        coste = 0;
+        coste = 0f; 
         realizado = false;
+        //Variables propias de Pericial:
+        fechaEmision = LocalDate.of(1000, 01, 01);
     }
 }

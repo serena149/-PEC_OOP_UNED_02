@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 /**
  * Administrador
@@ -371,8 +372,68 @@ public class Admin extends Empleado
 
     public void mostrarCertHabit()
     {
-        //
+        Residencial res1;
+        NoResidencial noRes1;
+        LocalDate fechaMostrar = LocalDate.of(1000, 01, 01);
+        Habitabilidad hab1;
+        
+        //busqueda de tareas tipo proyecto
+        for(Tarea t : estudio.datosTareas){
+            switch(t.IDtipoTarea){
+                case 0:                    
+                    System.out.print("Bloque de viviendas ");
+                    break;
+                case 1:
+                    System.out.print("Vivienda unifamiliar ");
+                    break;
+                case 2:
+                    System.out.print("Nave industrial ");
+                    break;
+                case 3:
+                    System.out.print("Museo ");
+                    break;
+                case 4:
+                    System.out.print("Otra construcción no residencial ");
+                    break;
+                default:
+                    break;
+            }
+            
+            System.out.println(" con nombre unico " + t.nombreUnicoTarea);
+            System.out.print("y fecha del certificado de habitabilidad más reciente ");
+            
+            //casteo a Residencial o NoResidencial para poder acceder a historicoCert
+            if(t.IDtipoTarea >= 0 && t.IDtipoTarea <= 1){
+                res1 = (Residencial) t;
+                for(Certificado c : res1.historicoCert){
+                    if(c.IDtipoTarea == 6){
+                        hab1 = (Habitabilidad) c;  
+                        if(hab1.fechaEmision.isAfter(fechaMostrar)){
+                            fechaMostrar = hab1.fechaEmision;
+                        }                    
+                    }
+                }
+            } else if(t.IDtipoTarea >= 2 && t.IDtipoTarea <= 4){
+                noRes1 = (NoResidencial) t;
+                for(Certificado c : noRes1.historicoCert){
+                    if(c.IDtipoTarea == 6){
+                        hab1 = (Habitabilidad) c;
+                        if(hab1.fechaEmision.isAfter(fechaMostrar)){
+                            fechaMostrar = hab1.fechaEmision;
+                        }
+                    }
                 
+                }                
+            }
+            
+            if(fechaMostrar.isAfter(LocalDate.of(1000, 01, 01))){
+                System.out.println(fechaMostrar);
+                fechaMostrar = LocalDate.of(1000, 01, 01);
+            } else {
+                System.out.println("no disponible");
+            }
+        }
+        
     }
     
     /**

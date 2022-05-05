@@ -19,15 +19,17 @@ public class Habitabilidad extends Certificado
     {
         IDtipoTarea = 6;
         nombreUnicoTarea = str1;
-        DNIaparejador = "";
+        //Variables heredadas de Tarea:
+        fechaSolicitud = LocalDate.of(1000, 01, 01);
         DNIcliente = "";
         DNIarquitecto = "";
         DNIcontable = "";
-        fechaSolicitud = LocalDate.of(1000, 01, 01);
-        fechaVisita = LocalDate.of(1000, 01, 01);        
-        fechaEmision = LocalDate.of(1000, 01, 01);
+        DNIaparejador = "";
         fechaEntrega = LocalDate.of(1000, 01, 01);
-        coste = 0;
-        realizado = false;    
+        coste = 0f; 
+        realizado = false; 
+        //variables propias de Habitabilidad:
+        fechaVisita = LocalDate.of(1000, 01, 01);
+        fechaEmision = LocalDate.of(1000, 01, 01);
     }
 }

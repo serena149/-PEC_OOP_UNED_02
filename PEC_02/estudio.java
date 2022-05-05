@@ -40,8 +40,10 @@ public class estudio
             System.out.println("Indica qué operación deseas realizar:");
             System.out.println("0: alta de usuario, 1: baja de usuario, 2: modificación de usuario,");
             System.out.println("3: asignación de tareas a los empleados, 4: visualización de todos los usuarios,");
-            System.out.println("5: visualización de clientes por cada arquitecto y aparejador,");         
-            System.out.println("6: visualización de listado de viviendas/edificios y fechas de fin de obra,");
+            System.out.println("5: listado de clientes por cada arquitecto y aparejador,");         
+            System.out.println("6: listado de viviendas/edificios y fechas de fin de obra,");
+            System.out.println("7: listado de viviendas/edificios y fechas de último certificado de habitabilidad.");
+            
             aux1 = Integer.parseInt(sc.nextLine());
             
             switch(aux1){
@@ -65,6 +67,9 @@ public class estudio
                     break;
                 case 6:
                     ad.mostrarFechaFinObra();
+                    break;
+                case 7:
+                    ad.mostrarCertHabit();
                     break;
                 default:
                     throw new Exception();
@@ -212,7 +217,8 @@ public class estudio
         datosTareas = new ArrayList<Tarea>();
         datosPersonas = new ArrayList<Persona>();
         sc = new Scanner(System.in);
-                
+        
+        //CODIGO DEBUG BORRAR
         datosPersonas.add(new Cliente("1"));
         datosPersonas.get(0).nombre = "Sere";
         datosPersonas.get(0).ape1 = "N";
@@ -280,6 +286,16 @@ public class estudio
         datosTareas.get(0).fechaSolicitud = LocalDate.parse("2022-05-23");
         Proyecto borrar = (Proyecto) datosTareas.get(0); //es una referencia
         borrar.fechaFinObra = LocalDate.parse("2022-05-23");
+        Residencial borrarRes = (Residencial) datosTareas.get(0);
+        Habitabilidad hab1 = new Habitabilidad(""); //pruebas para metodo del cert de habitabilidad
+        hab1.fechaEmision = LocalDate.of(2000, 01, 05);
+        borrarRes.historicoCert.add(hab1);
+        hab1 = new Habitabilidad("");
+        hab1.fechaEmision = LocalDate.of(2010, 01,05);
+        borrarRes.historicoCert.add(hab1);
+        hab1 = new Habitabilidad("");
+        hab1.fechaEmision = LocalDate.of(2015, 01, 05);
+        borrarRes.historicoCert.add(hab1);
                         
         datosTareas.add(new Unifamiliar("Descripcion del unifamiliar"));
         datosTareas.get(1).DNIcliente = "1";

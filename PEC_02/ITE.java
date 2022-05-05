@@ -19,14 +19,16 @@ public class ITE extends Certificado
     {
         IDtipoTarea = 7;
         nombreUnicoTarea = str1;
-        DNIaparejador = "";
-        DNIarquitecto = "";
-        DNIcliente = "";
-        DNIcontable = "";
+        //Variables heredadas de Tarea:
         fechaSolicitud = LocalDate.of(1000, 01, 01);
+        DNIcliente = "";
+        DNIarquitecto = "";
+        DNIcontable = "";
+        DNIaparejador = "";
         fechaEntrega = LocalDate.of(1000, 01, 01);
+        coste = 0f; 
+        realizado = false; 
+        //variables propias de ITE
         fechaFinObra = LocalDate.of(1000, 01, 01);
-        coste = 0;
-        realizado = false;
     }
 }
