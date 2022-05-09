@@ -42,7 +42,8 @@ public class estudio
             System.out.println("3: asignación de tareas a los empleados, 4: visualización de todos los usuarios,");
             System.out.println("5: listado de clientes por cada arquitecto y aparejador,");         
             System.out.println("6: listado de viviendas/edificios y fechas de fin de obra,");
-            System.out.println("7: listado de viviendas/edificios y fechas de último certificado de habitabilidad.");
+            System.out.println("7: listado de viviendas/edificios y fechas de último certificado de habitabilidad,");
+            System.out.println("8: consulta y gestión del calendario.");
             
             aux1 = Integer.parseInt(sc.nextLine());
             
@@ -70,6 +71,9 @@ public class estudio
                     break;
                 case 7:
                     ad.mostrarCertHabit();
+                    break;
+                case 8:    
+                    ad.gestionCalendario();
                     break;
                 default:
                     throw new Exception();
@@ -285,8 +289,10 @@ public class estudio
         datosTareas.get(0).DNIaparejador = "x";
         datosTareas.get(0).fechaSolicitud = LocalDate.parse("2022-05-23");
         Proyecto borrar = (Proyecto) datosTareas.get(0); //es una referencia
-        borrar.fechaFinObra = LocalDate.parse("2022-05-23");
+        //borrar.fechaInicio = LocalDate.parse("2020-12-08");
+        //borrar.fechaFinObra = LocalDate.parse("2022-05-23");        
         Residencial borrarRes = (Residencial) datosTareas.get(0);
+        
         Habitabilidad hab1 = new Habitabilidad(""); //pruebas para metodo del cert de habitabilidad
         hab1.fechaEmision = LocalDate.of(2000, 01, 05);
         borrarRes.historicoCert.add(hab1);
@@ -304,6 +310,7 @@ public class estudio
         datosTareas.get(1).fechaSolicitud = LocalDate.parse("2022-05-23");
         datosTareas.get(1).realizado = true;    
         borrar = (Proyecto) datosTareas.get(1); //es una referencia
+        borrar.fechaInicio = LocalDate.parse("2024-11-05");
         borrar.fechaFinObra = LocalDate.parse("2025-01-31");
                 
         datosTareas.add(new Nave("Descripcion de la nave"));
@@ -311,22 +318,34 @@ public class estudio
         datosTareas.get(2).DNIarquitecto = "b";
         datosTareas.get(2).DNIaparejador = "x";
         datosTareas.get(2).fechaSolicitud = LocalDate.parse("2022-07-23");
+        borrar = (Proyecto) datosTareas.get(2); //es una referencia
+        borrar.fechaInicio = LocalDate.parse("1999-08-16");
+        borrar.fechaFinObra = LocalDate.parse("2000-05-26");
         
         datosTareas.add(new Museo("Descripcion museo"));
         datosTareas.get(3).DNIcliente = "2";
         datosTareas.get(3).DNIarquitecto = "b";
         datosTareas.get(3).fechaSolicitud = LocalDate.parse("2022-07-23");
+        borrar = (Proyecto) datosTareas.get(3); //es una referencia
+        borrar.fechaInicio = LocalDate.parse("2015-03-19");
+        borrar.fechaFinObra = LocalDate.parse("2016-11-14");
         
         datosTareas.add(new OtraNoRes("Descripcion OtraNoRes"));
         datosTareas.get(4).DNIcliente = "3";
         datosTareas.get(4).DNIarquitecto = "c";
         datosTareas.get(4).fechaSolicitud = LocalDate.parse("2022-01-01");
         datosTareas.get(4).realizado = true;
+        borrar = (Proyecto) datosTareas.get(4); //es una referencia
+        borrar.fechaInicio = LocalDate.parse("2019-04-15");
+        borrar.fechaFinObra = LocalDate.parse("2020-03-13");
         
         datosTareas.add(new Rehabilitacion("Descripcion rehabilitacion"));
         datosTareas.get(5).DNIcliente = "3";
         datosTareas.get(5).DNIarquitecto = "c";
         datosTareas.get(5).fechaSolicitud = LocalDate.parse("2022-01-01");
+        borrar = (Proyecto) datosTareas.get(5); //es una referencia
+        borrar.fechaInicio = LocalDate.parse("2021-01-31");
+        borrar.fechaFinObra = LocalDate.parse("2021-03-13");
         
         datosTareas.add(new Habitabilidad("Descripcion certif habitabilidad"));
         datosTareas.get(6).DNIcliente = "4";

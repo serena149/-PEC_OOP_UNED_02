@@ -482,8 +482,60 @@ public class Admin extends Empleado
     */
     public void gestionCalendario()
         {
-            //
+            Proyecto pro1;
+            ArrayList<Proyecto> arrayP = new ArrayList<Proyecto>();
+            String str1 = new String("");
+            int int1;
+            LocalDate fecha1;
+            LocalDate fecha2;
+            
+            try{
+                System.out.println("Calendario de obras:");
+            
+                for(Tarea t : estudio.datosTareas){
+                    if(t.IDtipoTarea <= 5){
+                        pro1 = (Proyecto) t;
+                        arrayP.add(pro1);
+                    }
+                }
+                
+                for(Proyecto p : arrayP){
+                    System.out.println((arrayP.indexOf(p)+1) + ") Proyecto con con nombre único " + p.nombreUnicoTarea);  
+                    System.out.print("   Fecha de inicio de obra: ");
+                    if(p.fechaInicio.isAfter(LocalDate.of(1000, 01, 01))){
+                        System.out.println(p.fechaInicio.toString() + ",");
+                    } else {
+                        System.out.println("no definida,");
+                    } 
                     
+                    System.out.print("   Fecha de fin de obra: ");                
+                    if(p.fechaFinObra.isAfter(LocalDate.of(1000, 01, 01))){
+                        System.out.println(p.fechaFinObra.toString() + ".");
+                    } else {
+                        System.out.println("no definida.");
+                    }
+                }
+                
+                System.out.println("Quieres modificar las fechas de un proyecto? S/N");
+                str1 = estudio.sc.nextLine();
+                    
+                if(str1.equals("S")){
+                    System.out.println("Indica el número del proyecto en el calendario:");
+                    int1 = Integer.parseInt(estudio.sc.nextLine());                    
+                    
+                    if(int1 >= 1 && int1 <= arrayP.size()){
+                        System.out.println("Indica la nueva fecha de inicio de la obra con formato aaaa-mm-dd:");
+                        arrayP.get(int1 -1).fechaInicio = LocalDate.parse(estudio.sc.nextLine());
+                        System.out.println("Indica la nueva fecha de fin de la obra con formato aaaa-mm-dd:");
+                        arrayP.get(int1 -1).fechaFinObra = LocalDate.parse(estudio.sc.nextLine());
+                    } else {
+                        System.out.println("No se ha encontrado un proyecto con ese número.");
+                    }
+                    
+                }
+            } catch(Exception e) {
+                System.out.println("Error en los datos. Por favor, realiza otro intento.");
+            } 
         }
     
 }
