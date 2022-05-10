@@ -5,7 +5,7 @@
 
 public class Aparejador extends Empleado
 {
-    //     
+    //No hay de momento campos propios de Aparejador 
 
     /**
      * Constructor
@@ -13,8 +13,10 @@ public class Aparejador extends Empleado
     
     public Aparejador(String nif)
     {
+        //Se inicializan las variables heredadas de Persona
         DNIoNIE = nif;
         IDtipo = 3;
+        
         nombre = "";
         ape1 = "";
         ape2 = "";
@@ -30,13 +32,18 @@ public class Aparejador extends Empleado
         
         try{
             System.out.println("Listado de clientes con proyectos o certificados asignados a este aparejador:");
+            
+            //Se recorre el array de personas
             for (Persona p : estudio.datosPersonas){
-                if(p.IDtipo == 0){            
+                //Si se trata de un cliente, se imprimen sus datos
+                if(p.IDtipo == 0){     
+                    System.out.println("    Cliente con DNI " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                    //Se recorre el array de tareas
                     for (Tarea t : estudio.datosTareas){
+                        //Si la tarea está asignada al cliente en cuestión y al aparejador del que se buscan los clientes, se imprimen los datos
                         if(t.DNIcliente.equals(p.DNIoNIE) && t.DNIaparejador.equals(DNIoNIE)){
                             hayTareas = true;
-                            System.out.println("");
-                            System.out.println("Cliente con DNI " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                            
                             System.out.print("Tarea: ");
                             switch(t.IDtipoTarea){
                                 case 0:
@@ -84,13 +91,17 @@ public class Aparejador extends Empleado
                                 
                         }
                     }
+                    
+                    //Si no hay tareas para el cliente, se imprime un mensaje
+                    if(!hayTareas){
+                        System.out.println("No se han encontrado tareas.");
+                    } else {
+                        //Si hay tareas, se resetea la variable bool para el siguiente cliente
+                        hayTareas = false;
+                    }
+                    
                 }
             }
-            
-            if(!hayTareas){
-                System.out.println("No se han encontrado tareas.");
-            }
-            
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
             System.out.println(e);
@@ -105,7 +116,6 @@ public class Aparejador extends Empleado
     
     public void mostrarClientesPendientes()
     {
-        // put your code here
-        
+        //Placeholder        
     }
 }

@@ -19,8 +19,6 @@ public class Proyecto extends Tarea
      */
     public Proyecto()
     {
-        //
-        
-    }   
-    
+        //        
+    }
 }

@@ -1,4 +1,3 @@
-
 /**
  * Edificio residencial, bloque de pisos.
  */
@@ -9,10 +8,8 @@ import java.time.Period;
 
 public class Edificio extends Residencial
 {
-    //
-
     /**
-     * Constructor for objects of class Edificio
+     * Constructor
      */
     public Edificio(String str1)
     {
@@ -42,6 +39,5 @@ public class Edificio extends Residencial
         numHabitaciones = 0;
         numBaños = 0;
         historicoCert = new ArrayList<Certificado>();
-    }    
-    
+    } 
 }

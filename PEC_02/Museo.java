@@ -8,8 +8,6 @@ import java.time.Period;
 
 public class Museo extends NoResidencial
 {
-    //
-    
     /**
      * Constructor
      */

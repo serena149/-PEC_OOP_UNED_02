@@ -1,4 +1,3 @@
-
 /**
  * Certificado de Eficiencia Energetica
  * Se emiten con una categoría que puede ser desde la “A” (la más eficiente) a la “G”.

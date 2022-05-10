@@ -8,8 +8,6 @@ import java.time.Period;
 
 public class OtraNoRes extends NoResidencial
 {
-    //
-
     /**
      * Constructor
     */

@@ -1,22 +1,23 @@
+/**
+ * Administrador  
+*/
+
 import java.util.ArrayList;
 import java.time.LocalDate;
 
-/**
- * Administrador
- * 
-*/
-
 public class Admin extends Empleado
 {
-    //     
+    //No hay de momento campos propios de Admin
 
     /**
-     * Constructor for objects of class Admin
+     * Constructor
      */
     public Admin(String nif)
     {
+        //Se inicializan las variables heredadas de Persona
         DNIoNIE = nif;
         IDtipo = 1;
+        
         nombre = "";
         ape1 = "";
         ape2 = "";
@@ -38,12 +39,14 @@ public class Admin extends Empleado
             System.out.println("Indica DNI o NIE de la persona que estás dando de alta:");
             DNIInput = estudio.sc.nextLine();
             
+            //Se comprueba que el DNI o NIE introducido no sea repetido.
             for (Persona p : estudio.datosPersonas) {
                 if(p.DNIoNIE.equals(DNIInput)){
                         throw new Exception();
                     }
                 }
             
+            //Se puede volver a introducir mismo nombre / apellido si no se desea modificarlo
             System.out.println("Indica el nombre:");
             nombreInput = estudio.sc.nextLine();
             
@@ -56,7 +59,8 @@ public class Admin extends Empleado
             System.out.println("Indica qué tipo de usuario deseas dar de alta:");
             System.out.println("0: cliente, 1: administrador, 2: arquitecto, 3: aparejador, 4: contable");
             aux1 = Integer.parseInt(estudio.sc.nextLine());
-                    
+            
+            //Se crea objeto del tipo solicitado por el usuario
             switch(aux1) {
                 case 0:
                     estudio.datosPersonas.add(new Cliente(DNIInput));
@@ -76,6 +80,8 @@ public class Admin extends Empleado
                 default:
                     throw new Exception();
                 }
+            
+            //Se recorre el array de Personas y se modifica el objeto recién creado
             for (Persona p : estudio.datosPersonas){
                 if(p.DNIoNIE.equals(DNIInput)){
                     p.nombre = nombreInput;
@@ -95,14 +101,15 @@ public class Admin extends Empleado
 
     public void bajaUsuario()
     {
-        String DNIInput;
-        boolean personaExiste = false;
-        int index;
+        String DNIInput = new String("");
+        boolean personaExiste = false;        
         
         try{
             System.out.println("Indica DNI o NIE de la persona que estás dando de baja:");
             DNIInput = estudio.sc.nextLine();
             
+            //Se comprueba que el usuario exista en el array
+            //Si existe, se retira del array
             for (Persona p : estudio.datosPersonas){
                 if (p.DNIoNIE.equals(DNIInput)){
                     personaExiste = true;
@@ -112,11 +119,11 @@ public class Admin extends Empleado
                 }
             }
             
+            //Si no existe, se lanza una excepción para mostrar el mensaje de error
             if(!personaExiste){
                 throw new Exception();                
             }
-            
-            
+             
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
         }                
@@ -138,12 +145,14 @@ public class Admin extends Empleado
             System.out.println("Indica DNI o NIE de la persona que estás modificando:");
             DNIInput = estudio.sc.nextLine();
             
-            for (Persona p : estudio.datosPersonas){
+            //Se comprueba que el DNI o NIE corresponda a una persona en el array
+            for (Persona p : estudio.datosPersonas){                
                 if (p.DNIoNIE.equals(DNIInput)){
                     personaExiste = true;
                 }
             }
             
+            //Si no existe, se interrumpe la ejecución y se muestra el mensaje de error
             if(!personaExiste){
                 throw new Exception();                
             }
@@ -157,6 +166,7 @@ public class Admin extends Empleado
             System.out.println("Indica el nuevo segundo apellido, si existe:");
             ape2Input = estudio.sc.nextLine();
             
+            //se recorre el array y se actualizan los datos
             for (Persona p : estudio.datosPersonas){
                 if(p.DNIoNIE.equals(DNIInput)){
                     p.nombre = nombreInput;
@@ -188,16 +198,19 @@ public class Admin extends Empleado
             System.out.println("Indica el nombre único de la tarea que quieres asignar");
             nombreInput = estudio.sc.nextLine();
             
+            //Se comprueba que el nombre corresponda a una tarea que existe en el array
             for (Tarea t : estudio.datosTareas){
                 if (t.nombreUnicoTarea.equals(nombreInput)){
                     tareaExiste = true;
                 }
             }
             
+            //si no existe, se lanza una excepción
             if(!tareaExiste){
                 throw new Exception();                
             }
             
+            //Se solicitan los DNI de los profesionales, repitiendo las comprobaciones para todos
             System.out.println("Indica el DNI del arquitecto al que quieres asignar la tarea:");
             arquiInput = estudio.sc.nextLine();
             
@@ -240,9 +253,19 @@ public class Admin extends Empleado
             if(!personaExiste){
                 throw new Exception();
             }
-            
+                                  
             personaExiste = false;
-        
+            
+            //Se graban los nuevos valores
+            for(Tarea t : estudio.datosTareas){
+                if(t.nombreUnicoTarea.equals(nombreInput)){
+                    t.DNIarquitecto = arquiInput;
+                    t.DNIaparejador = apaInput;
+                    t.DNIcontable = contInput;
+                    System.out.println("La tarea se ha asignado correctamente.");
+                }
+            }
+                    
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
         }
@@ -255,6 +278,8 @@ public class Admin extends Empleado
     public void mostrarTodosDatos()
     {
         System.out.println("Datos de las personas dadas de alta en el sistema:"); 
+        
+        //Se imprime el tipo correcto de usuario del programa
         for (Persona p : estudio.datosPersonas){
             switch (p.IDtipo){
                  case 0:
@@ -274,7 +299,8 @@ public class Admin extends Empleado
                  default:
                      break;
                 }
-                
+            
+            //Se imprimen los datos
             System.out.println(" con DNI o NIE: " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
             }                
     }
@@ -285,11 +311,16 @@ public class Admin extends Empleado
 
     public void mostrarClientes()
     {
+        System.out.println("Listado de clientes por cada arquitecto o aparejador:");
+        
         //recorre el array de personas
         for(Persona p : estudio.datosPersonas){
-            ArrayList<String> listaDNIclientes = new ArrayList<String>();          
-            //si es se trata de un arquitecto o aparejador
+            ArrayList<String> listaDNIclientes = new ArrayList<String>();             
+            
+            //Solo se ejecuta el bloque si se trata de un arquitecto o aparejador
             if(p.IDtipo == 2 || p.IDtipo == 3){
+                
+                //Se imprime el tipo de usuario
                 switch(p.IDtipo){
                     case 2:
                          System.out.print("Arquitecto");
@@ -298,16 +329,18 @@ public class Admin extends Empleado
                          System.out.print("Aparejador");
                          break;
                 }
+                
+                //se imprimen los datos
                 System.out.println(" con DNI o NIE: " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
                 
-                //búsqueda de clientes para el arquitecto o aparejador, evitando duplicados:
+                //se buscan los clientes para el arquitecto o aparejador, evitando duplicados:
                 for (Tarea t : estudio.datosTareas){
                     if((t.DNIarquitecto.equals(p.DNIoNIE) || t.DNIaparejador.equals(p.DNIoNIE)) && !listaDNIclientes.contains(t.DNIcliente)){
                         listaDNIclientes.add(t.DNIcliente);
                     }
                 }
                 
-                //impresión de la lista
+                //Se imprime la lista o, en ausencia de clientes asignados, un mensaje
                 if(listaDNIclientes.size() == 0){
                     System.out.println("    No resultan clientes asignados.");
                 } else {
@@ -332,8 +365,12 @@ public class Admin extends Empleado
     {
         Proyecto temp;
         
-        //busqueda de tareas tipo proyecto
+        System.out.println("Listado de proyectos y fechas de fin de obra:");
+        
+        //Se recorre el array:
         for(Tarea t : estudio.datosTareas){
+            
+            //Se imprime el tipo de proyecto
             switch(t.IDtipoTarea){
                 case 0:                    
                     System.out.print("Bloque de viviendas ");
@@ -357,10 +394,17 @@ public class Admin extends Empleado
                     break;
             }
             
-            //casteo a Proyecto para poder acceder a fechaFinObra
+            //Se usa un casteo a Proyecto para poder acceder a fechaFinObra, excluyendo los certificados
             if(t.IDtipoTarea <= 5){
                 temp = (Proyecto) t;
-                System.out.println("con fecha de fin de obra: " + temp.fechaFinObra);
+                
+                //Se comprueba que el valor no sea el valor por defecto, o  sea 1000-01-01
+                if(temp.fechaFinObra.isAfter(LocalDate.of(1000, 01, 01))){
+                    System.out.println("con fecha de fin de obra: " + temp.fechaFinObra);
+                } else {
+                    System.out.println("con fecha de fin de obra no disponible");
+                }
+                
             }
         }
                 
@@ -377,8 +421,12 @@ public class Admin extends Empleado
         LocalDate fechaMostrar = LocalDate.of(1000, 01, 01);
         Habitabilidad hab1;
         
-        //busqueda de tareas tipo proyecto
+        System.out.println("Listado de proyectos y fecha del último certificado de habitabilidad:");
+        
+        //Se recorre el array
         for(Tarea t : estudio.datosTareas){
+            
+            //Se imprime el tipo de proyecto
             switch(t.IDtipoTarea){
                 case 0:                    
                     System.out.print("Bloque de viviendas ");
@@ -402,18 +450,24 @@ public class Admin extends Empleado
             System.out.println(" con nombre unico " + t.nombreUnicoTarea);
             System.out.print("y fecha del certificado de habitabilidad más reciente ");
             
-            //casteo a Residencial o NoResidencial para poder acceder a historicoCert
+            //casteo a Residencial para poder acceder a historicoCert
             if(t.IDtipoTarea >= 0 && t.IDtipoTarea <= 1){
                 res1 = (Residencial) t;
+                
+                //Se recorre historicoCert
                 for(Certificado c : res1.historicoCert){
+                    //Se aceptan solo los certificados de tipo Habitabilidad
                     if(c.IDtipoTarea == 6){
+                        //Se realiza un casteo para poder acceder a la fecha de emisión
                         hab1 = (Habitabilidad) c;  
+                        //Se guarda la fecha en una variable solo si es más reciente que la anterior
                         if(hab1.fechaEmision.isAfter(fechaMostrar)){
                             fechaMostrar = hab1.fechaEmision;
                         }                    
                     }
                 }
             } else if(t.IDtipoTarea >= 2 && t.IDtipoTarea <= 4){
+                //casteo a NoResidencial para poder acceder a historicoCert. Se usa el mismo mecanismo para la busqueda y comparación de fechas.
                 noRes1 = (NoResidencial) t;
                 for(Certificado c : noRes1.historicoCert){
                     if(c.IDtipoTarea == 6){
@@ -426,10 +480,12 @@ public class Admin extends Empleado
                 }                
             }
             
+            //Si la fecha es válida, se muestra a pantalla y luego se resetea la variable usada para comparar las fechas
             if(fechaMostrar.isAfter(LocalDate.of(1000, 01, 01))){
                 System.out.println(fechaMostrar);
                 fechaMostrar = LocalDate.of(1000, 01, 01);
             } else {
+                //En caso contrario, se muestra un mensaje
                 System.out.println("no disponible");
             }
         }
@@ -442,8 +498,7 @@ public class Admin extends Empleado
 
     public void mostrarTareasVivienda()
     {
-        //
-                
+        //Placeholder                
     }
     
     /**
@@ -452,8 +507,7 @@ public class Admin extends Empleado
 
     public void mostrarPlan()
     {
-        //
-                
+        //Placeholder        
     }
     
     /** 
@@ -461,8 +515,7 @@ public class Admin extends Empleado
     */
     public void buscarViviendasITE()
         {
-            //
-                    
+            //Placeholder                    
         }
         
     /**
@@ -470,15 +523,11 @@ public class Admin extends Empleado
     */
     public void buscarHabitabilidadCumpl()
         {
-            //
-                    
+            //Placeholder                    
         }
         
     /**
-    * Una vez el cliente ha obtenido el proyecto y decide que el propio estudio desarrolle la obra, el administrador gestionará el calendario 
-    * teniendo en cuenta que el estudio no puede tener más de tres obras en marcha al mismo tiempo.
-    * Para ello el administrador consultará la duración prevista de la obra que consta en el proyecto y asignará la fecha de inicio de la obra. 
-    * Cuando la obra haya finalizado,también actualizará la fecha de fin de obra.
+    * Gestión manual del calendario de obras, introduciendo fechas de inicio y fin de obra.
     */
     public void gestionCalendario()
         {
@@ -491,7 +540,8 @@ public class Admin extends Empleado
             
             try{
                 System.out.println("Calendario de obras:");
-            
+                
+                //Se recorre el array de tareas de la clase estudio, almacenando los proyectos en un array temporal de tipo Proyecto
                 for(Tarea t : estudio.datosTareas){
                     if(t.IDtipoTarea <= 5){
                         pro1 = (Proyecto) t;
@@ -499,9 +549,12 @@ public class Admin extends Empleado
                     }
                 }
                 
+                //Se imprimen los datos de los proyectos y un número que permita luego identificar rápidamente el proyecto que se quiera modificar
                 for(Proyecto p : arrayP){
                     System.out.println((arrayP.indexOf(p)+1) + ") Proyecto con con nombre único " + p.nombreUnicoTarea);  
                     System.out.print("   Fecha de inicio de obra: ");
+                    
+                    //Se imprimen las fechas solo si validas
                     if(p.fechaInicio.isAfter(LocalDate.of(1000, 01, 01))){
                         System.out.println(p.fechaInicio.toString() + ",");
                     } else {
@@ -518,11 +571,13 @@ public class Admin extends Empleado
                 
                 System.out.println("Quieres modificar las fechas de un proyecto? S/N");
                 str1 = estudio.sc.nextLine();
-                    
+                
+                //Solo si el usuario desea modificar fechas, se ejecuta este bloque
                 if(str1.equals("S")){
                     System.out.println("Indica el número del proyecto en el calendario:");
-                    int1 = Integer.parseInt(estudio.sc.nextLine());                    
+                    int1 = Integer.parseInt(estudio.sc.nextLine());
                     
+                    //Solo si el número introducido es valido
                     if(int1 >= 1 && int1 <= arrayP.size()){
                         System.out.println("Indica la nueva fecha de inicio de la obra con formato aaaa-mm-dd:");
                         arrayP.get(int1 -1).fechaInicio = LocalDate.parse(estudio.sc.nextLine());

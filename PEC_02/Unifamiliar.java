@@ -9,8 +9,6 @@ import java.time.Period;
 
 public class Unifamiliar extends Residencial
 {
-    //
-
     /**
      * Constructor
      */

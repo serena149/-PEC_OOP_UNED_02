@@ -15,18 +15,17 @@ public class Tarea
     //Variables tras asignación/contratación:
     public String DNIcontable;
     public String DNIaparejador;
-    LocalDate fechaEntrega;
+    public LocalDate fechaEntrega;
     //Variable tras valoración por contable:
     public float coste;   
     //realizado
     boolean realizado;
-
     
     /**
-     * Constructor for objects of class Tarea
+     * Constructor
      */
     public Tarea()
     {
-        
+        //
     }
 }

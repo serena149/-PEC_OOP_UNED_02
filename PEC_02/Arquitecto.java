@@ -7,15 +7,17 @@ import java.time.LocalDate;
 
 public class Arquitecto extends Empleado
 {
-    // instance variables    
-
+    //No hay de momento campos propios de Arquitecto
+        
     /**
      * Constructor
      */
     public Arquitecto(String nif)
     {
+        //Se inicializan las variables heredadas de Persona
         DNIoNIE = nif;
         IDtipo = 2;
+        
         nombre = "";
         ape1 = "";
         ape2 = "";
@@ -30,13 +32,18 @@ public class Arquitecto extends Empleado
         
         try{
             System.out.println("Listado de clientes con proyectos o certificados asignados a este arquitecto:");
+            
+            //Se recorre el array de personas
             for (Persona p : estudio.datosPersonas){
-                if(p.IDtipo == 0){            
+                //Si se trata de un cliente, se imprimen sus datos
+                if(p.IDtipo == 0){  
+                    System.out.println("    Cliente con DNI o NIE " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                    //Se recorre el array de tareas
                     for (Tarea t : estudio.datosTareas){
+                        //Si la tarea está asignada al cliente en cuestión y al arquitecto del que se buscan los clientes, se imprimen los datos
                         if(t.DNIcliente.equals(p.DNIoNIE) && t.DNIarquitecto.equals(DNIoNIE)){
-                            hayTareas = true;
-                            System.out.println("");
-                            System.out.println("Cliente con DNI o NIE " + p.DNIoNIE + ", " + p.nombre + " " + p. ape1 + " " + p.ape2);
+                            hayTareas = true;                     
+                            
                             System.out.print("Tarea: ");
                             switch(t.IDtipoTarea){
                                 case 0:
@@ -85,12 +92,16 @@ public class Arquitecto extends Empleado
                                 
                             }
                     }
+                    //Si no hay tareas para el cliente, se imprime un mensaje
+                    if(!hayTareas){
+                        System.out.println("No se han encontrado tareas.");
+                    } else {
+                        //Si hay tareas, se resetea la variable bool para el siguiente cliente
+                        hayTareas = false;
+                    }
                 }
-            }
+            }            
             
-            if(!hayTareas){
-                System.out.println("No se han encontrado tareas.");
-            }
         } catch(Exception e){
             System.out.println("Error en los datos. Por favor, realiza otro intento.");
         }        
@@ -101,9 +112,6 @@ public class Arquitecto extends Empleado
      */
     public void altaTarea()
     {
-        //Se asigna a un arquitecto.
-        //El resto de asignaciones de empleados (contable etc) las gestiona el admin según el enunciado, por lo que aquí se dejan vacías.
-        
         int aux1;
         LocalDate fechaInput1;
         String nombreInput;
@@ -117,21 +125,23 @@ public class Arquitecto extends Empleado
         Habitabilidad hab1;
         
         try {                 
-            System.out.println("Indica una fecha de solicitud con formato aaaa-mm-dd");
-            fechaInput1 = LocalDate.parse(estudio.sc.nextLine());
-            
             System.out.println("Indica un nombre unico para el proyecto que estás dando de alta:");
             nombreInput = estudio.sc.nextLine();
             
+            //Se comprueba que el nombre sea único          
             for (Tarea t : estudio.datosTareas) {
                 if(t.nombreUnicoTarea.equals(nombreInput)){
                         throw new Exception();
                     }
                 }
                         
+            System.out.println("Indica una fecha de solicitud con formato aaaa-mm-dd");
+            fechaInput1 = LocalDate.parse(estudio.sc.nextLine());
+            
             System.out.println("Indica el DNI del cliente");
-            DNIInput = estudio.sc.nextLine();   
-                        
+            DNIInput = estudio.sc.nextLine(); 
+            
+            //Se comprueba que el cliente exista            
             for (Persona p : estudio.datosPersonas) {
                     if(p.DNIoNIE.equals(DNIInput) && p.IDtipo == 0){
                         clienteExiste = true;
@@ -142,9 +152,13 @@ public class Arquitecto extends Empleado
                 throw new Exception();
             }
             
+            //Se asigna a un arquitecto.
+            //El resto de asignaciones de empleados (contable etc) las gestiona el admin según el enunciado, por lo que aquí se dejan vacías.
+        
             System.out.println("Indica el DNI del arquitecto");
             DNIInput2 = estudio.sc.nextLine();   
-                        
+            
+            //Se comprueba que el arquitecto exista 
             for (Persona p : estudio.datosPersonas) {
                     if((p.DNIoNIE.equals(DNIInput2) && p.IDtipo == 2)){
                         arquiExiste = true;
@@ -155,6 +169,7 @@ public class Arquitecto extends Empleado
                 throw new Exception();
             }
             
+            //Se crea un objeto del tipo solicitado por el usuario
             System.out.println("Indica qué tipo de proyecto o certificado deseas dar de alta:");
             System.out.println("0: edificio, 1: vivienda unifamiliar, 2: nave, 3: museo, 4: otro no residencial, 5: rehabilitación");
             System.out.println("6: certificado de habitabilidad, 7: ITE, 8: eficiencia energetica, 9: informe pericial");
@@ -203,15 +218,17 @@ public class Arquitecto extends Empleado
                     t.DNIarquitecto = DNIoNIE;
                     
                     //Si se trata de un edificio/vivienda, se solicita y se graba también la fecha de emisión del certificado de habitabilidad más reciente:
-                    if(aux1 >= 0 && aux1 <= 4){
+                    if(aux1 <= 4){
                         System.out.println("Indica la fecha del certificado de habitabilidad más reciente con formato aaaa-mm-dd");
                         fechaInput2 = LocalDate.parse(estudio.sc.nextLine());
-                        if(aux1 >= 0 && aux1 <= 1){
+                        if(aux1 <= 1){
+                            //Se realiza un casteo a Residencial para poder acceder al array de certificados. Se añade un elemento y se modifica la fecha.
                             res1 = (Residencial) t;
                             res1.historicoCert.add(new Habitabilidad(""));
                             hab1 = (Habitabilidad) res1.historicoCert.get(res1.historicoCert.size() - 1);
                             hab1.fechaEmision = fechaInput2;
                         } else if(aux1 >= 2 && aux1 <= 4){
+                            //Se realiza un casteo a NoResidencial para poder acceder al array de certificados. Se añade un elemento y se modifica la fecha.
                             noRes1 = (NoResidencial) t;
                             noRes1.historicoCert.add(new Habitabilidad(""));
                             hab1 = (Habitabilidad) noRes1.historicoCert.get(noRes1.historicoCert.size() - 1);
@@ -230,12 +247,10 @@ public class Arquitecto extends Empleado
     
     
     /**
-     * Actualización de proyectos arquitectónicos y certifcados.
+     * Actualización de proyectos arquitectónicos y certificados.
      */
     public void modTarea()
     {
-        //Al actualizar el proyecto o certificado, se asigna al arquitecto que realiza los cambios.
-        
         String nombreInput;
         boolean tareaExiste = false;
         boolean clienteExiste = false;
@@ -247,6 +262,7 @@ public class Arquitecto extends Empleado
             System.out.println("Indica el nombre único de la tarea que quieres modificar");
             nombreInput = estudio.sc.nextLine();
             
+            //Se comprueba que la tarea exista
             for (Tarea t : estudio.datosTareas){
                 if (t.nombreUnicoTarea.equals(nombreInput)){
                     tareaExiste = true;
@@ -259,9 +275,11 @@ public class Arquitecto extends Empleado
             
             System.out.println("Indica la nueva fecha de solicitud");
             fechaInput1 = LocalDate.parse(estudio.sc.nextLine());
+            
             System.out.println("Indica el DNI del nuevo cliente");
             DNIInput = estudio.sc.nextLine(); 
             
+            //Se comprueba que el cliente exista
             for (Persona p : estudio.datosPersonas) {
                     if((p.DNIoNIE.equals(DNIInput) && p.IDtipo == 0)){
                         clienteExiste = true;
@@ -292,5 +310,4 @@ public class Arquitecto extends Empleado
                 System.out.println("Error en los datos. Por favor, realiza otro intento.");
             }
         }
-        
     }

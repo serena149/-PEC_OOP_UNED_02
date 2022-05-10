@@ -5,15 +5,17 @@
 
 public class Contable extends Empleado
 {
-    //
+    //No hay de momento campos propios de Contable
     
     /**
-     * Constructor for objects of class Contable
+     * Constructor
      */
     public Contable(String nif)
     {
+        //Se inicializan las variables heredadas de Persona
         DNIoNIE = nif;
-        IDtipo = 4;  
+        IDtipo = 4; 
+        
         nombre = "";
         ape1 = "";
         ape2 = "";
@@ -24,8 +26,7 @@ public class Contable extends Empleado
      */
     public void mostrarClientesCont()
     {
-        //
-        
+        //Placeholder        
     }
     
     /**
@@ -33,6 +34,6 @@ public class Contable extends Empleado
      */
     public void registrarPresu()
     {
-        //
+        //Placeholder
     }
 }

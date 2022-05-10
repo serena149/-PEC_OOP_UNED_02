@@ -1,4 +1,3 @@
-
 /**
  * Edificio no residencial
  * 
@@ -21,7 +20,6 @@ public class NoResidencial extends Proyecto
      */
     public NoResidencial()
     {
-        //
-        
+        //        
     }
 }

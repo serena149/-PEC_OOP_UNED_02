@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.target=Admin
-comment0.text=\r\n\ Administrador\r\n\ \r\n
 comment1.params=nif
 comment1.target=Admin(java.lang.String)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Admin\r\n
+comment1.text=\r\n\ Constructor\r\n
 comment10.params=
 comment10.target=void\ mostrarTareasVivienda()
 comment10.text=\r\n\ Visualizaci\u00F3n\ de\ un\ listado\ de\ viviendas\ en\ las\ que\ se\ pueda\ consultar\ para\ cada\ vivienda\ los\ proyectos\ arquitect\u00F3nicos\ y\ certificados\ emitidos.\r\n
@@ -18,7 +17,7 @@ comment13.target=void\ buscarHabitabilidadCumpl()
 comment13.text=\r\n\ Generacion\ de\ listado\ de\ certificados\ de\ habitabilidad\ que\ han\ cumplido\ 15\ a\u00F1os\ con\ el\ objetivo\ de\ informar\ a\ dichos\ clientes\ de\ la\ necesidad\ de\ renovarlos.\r\n
 comment14.params=
 comment14.target=void\ gestionCalendario()
-comment14.text=\r\n\ Una\ vez\ el\ cliente\ ha\ obtenido\ el\ proyecto\ y\ decide\ que\ el\ propio\ estudio\ desarrolle\ la\ obra,\ el\ administrador\ gestionar\u00E1\ el\ calendario\ \r\n\ teniendo\ en\ cuenta\ que\ el\ estudio\ no\ puede\ tener\ m\u00E1s\ de\ tres\ obras\ en\ marcha\ al\ mismo\ tiempo.\r\n\ Para\ ello\ el\ administrador\ consultar\u00E1\ la\ duraci\u00F3n\ prevista\ de\ la\ obra\ que\ consta\ en\ el\ proyecto\ y\ asignar\u00E1\ la\ fecha\ de\ inicio\ de\ la\ obra.\ \r\n\ Cuando\ la\ obra\ haya\ finalizado,tambi\u00E9n\ actualizar\u00E1\ la\ fecha\ de\ fin\ de\ obra.\r\n
+comment14.text=\r\n\ Gesti\u00F3n\ manual\ del\ calendario\ de\ obras,\ introduciendo\ fechas\ de\ inicio\ y\ fin\ de\ obra.\r\n
 comment2.params=
 comment2.target=void\ altaUsuario()
 comment2.text=\r\n\ Gesti\u00F3n\ de\ usuarios\:\ altas.\r\n

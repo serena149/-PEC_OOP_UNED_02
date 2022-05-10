@@ -1,21 +1,16 @@
 
 /**
- * Persona
+ * Persona.
  */
 
 public class Persona
 {
-    protected String nombre;
-    protected String ape1;
-    protected String ape2;
-    protected String DNIoNIE;
-    public int IDtipo;
+    //Campos
+    public String nombre;
+    public String ape1;
+    public String ape2;
+    public String DNIoNIE;
+    public int IDtipo;     
     
-    /**
-     * Constructor
-     */
-    public Persona()
-    {
-        //         
-    }    
+    //No se necesita constructor
 }

@@ -2,5 +2,5 @@
 comment0.target=Edificio
 comment1.params=str1
 comment1.target=Edificio(java.lang.String)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Edificio\r\n
+comment1.text=\r\n\ Constructor\r\n
 numComments=2

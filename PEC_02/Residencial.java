@@ -1,4 +1,3 @@
-
 /**
  * Residencial
  */
@@ -22,7 +21,6 @@ public class Residencial extends Proyecto
      */
     public Residencial()
     {
-        //
-        
+        //        
     }   
 }
