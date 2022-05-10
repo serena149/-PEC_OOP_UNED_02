@@ -29,7 +29,7 @@ public class estudio
     /**
      * Submenu de administrador: permite elegir qué función de Admin se quiere realizar
      */    
-    public static void submenuAdmin(Scanner sc)
+    public static void submenuAdmin()
     {
         int aux1;
         Admin ad = new Admin("");
@@ -84,7 +84,7 @@ public class estudio
      /**
      * Submenu de arquitecto
      */    
-    public static void submenuArqui(Scanner sc)
+    public static void submenuArqui()
     {
         int aux1;
         Arquitecto arq = new Arquitecto("");
@@ -120,7 +120,7 @@ public class estudio
     /**
      * Submenu de aparejador
      */    
-    public static void submenuApa(Scanner sc)
+    public static void submenuApa()
     {
         int aux1;
         Aparejador ap = new Aparejador("");
@@ -150,7 +150,7 @@ public class estudio
     /**
      * Submenu de contable
      */    
-    public static void submenuCont(Scanner sc)
+    public static void submenuCont()
     {
         //Placeholder
         System.out.println("Submenu contable.");
@@ -159,7 +159,7 @@ public class estudio
     /**
      * Menu principal
      */    
-    public static void Menu(Scanner sc)
+    public static void Menu()
     {
         int aux1;
         String str1;        
@@ -175,16 +175,16 @@ public class estudio
                 
                 switch(aux1) {
                     case 1:
-                        submenuAdmin(sc);
+                        submenuAdmin();
                         break;
                     case 2:
-                        submenuArqui(sc);
+                        submenuArqui();
                         break;
                     case 3:
-                        submenuApa(sc);
+                        submenuApa();
                         break;
                     case 4:
-                        submenuCont(sc);
+                        submenuCont();
                         break;
                     default:
                         throw new Exception();
@@ -224,8 +224,8 @@ public class estudio
         //Se inicializan las variables si se decide usar main       
         datosTareas = new ArrayList<Tarea>();
         datosPersonas = new ArrayList<Persona>();
-        sc = new Scanner(System.in);        
+        sc = new Scanner(System.in);                
     
-        Menu(sc);   
+        Menu();   
     }
 }
